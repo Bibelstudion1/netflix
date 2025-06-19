@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logga in | Nordilingo - Lär dig svenska på ett roligt sätt</title>
+    <meta name="description" content="Logga in på din Nordilingo-konto för att fortsätta din svenska språkresa. Tillgång till alla kurser, lektioner och personliga framsteg.">
+    <meta name="keywords" content="logga in, svenska kurser, språkinlärning, svenska för nybörjare, SFI, svenska online">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nordilingo.se/logga-in">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Logga in | Nordilingo - Lär dig svenska på ett roligt sätt">
+    <meta property="og:description" content="Logga in på din Nordilingo-konto för att fortsätta din svenska språkresa.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nordilingo.se/logga-in">
+    <meta property="og:image" content="https://nordilingo.se/images/og-login.jpg">
+    <meta property="og:site_name" content="Nordilingo">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Logga in | Nordilingo - Lär dig svenska på ett roligt sätt">
+    <meta name="twitter:description" content="Logga in på din Nordilingo-konto för att fortsätta din svenska språkresa.">
+    <meta name="twitter:image" content="https://nordilingo.se/images/og-login.jpg">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1DB954; /* Spotify green */
+            --secondary: #191414; /* Spotify black */
+            --dark: #121212;
+            --light: #FFFFFF;
+            --gray: #b3b3b3;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(25, 20, 20, 0.9), rgba(29, 185, 84, 0.8));
+        }
+        
+        .language-dropdown:hover .language-dropdown-menu {
+            display: block;
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Spotify-like button */
+        .spotify-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 500px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .spotify-btn:hover {
+            transform: scale(1.05);
+            background-color: #1ed760;
+        }
+        
+        /* Spotify-like text colors */
+        .text-spotify-green {
+            color: var(--primary);
+        }
+        
+        .text-spotify-gray {
+            color: var(--gray);
+        }
+        
+        .bg-spotify-black {
+            background-color: var(--secondary);
+        }
+        
+        .bg-spotify-dark {
+            background-color: var(--dark);
+        }
+        
+        .border-spotify {
+            border-color: #333;
+        }
+        
+        /* Login specific styles */
+        .login-container {
+            background: rgba(25, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(29, 185, 84, 0.2);
+        }
+        
+        .input-field {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .social-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .divider::before {
+            margin-right: 1em;
+        }
+        
+        .divider::after {
+            margin-left: 1em;
+        }
+        
+        .remember-me:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .remember-me:focus {
+            box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-spotify-dark">
+    <!-- Navigation -->
+    <nav class="bg-spotify-black bg-opacity-90 fixed w-full z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="#" class="flex items-center">
+                            <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                            <span class="text-white text-2xl font-bold">Nordilingo</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Hem</a>
+                            <a href="#" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kurser</a>
+                            <a href="#" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Funktioner</a>
+                            <a href="#" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Priser</a>
+                            <a href="#" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Recensioner</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <div class="language-dropdown relative ml-3">
+                            <button class="flex items-center text-sm rounded-full text-white focus:outline-none">
+                                <span class="sr-only">Språk</span>
+                                <img class="h-8 w-8 rounded-full" src="https://flagcdn.com/w40/se.png" alt="Swedish flag">
+                                <span class="ml-2">Svenska</span>
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div class="language-dropdown-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-spotify-black ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/gb.png" alt="English flag" class="h-4 w-4 mr-2">
+                                        English
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/de.png" alt="German flag" class="h-4 w-4 mr-2">
+                                        Deutsch
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/fr.png" alt="French flag" class="h-4 w-4 mr-2">
+                                        Français
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="ml-4 spotify-btn px-4 py-2 text-sm">
+                            Logga in
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-spotify-gray hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Öppna huvudmeny</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 bg-spotify-black z-50 overflow-y-auto">
+            <div class="px-4 pt-5 pb-4 flex justify-between items-center border-b border-gray-800">
+                <a href="#" class="flex items-center">
+                    <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                    <span class="text-white text-2xl font-bold">Nordilingo</span>
+                </a>
+                <button id="close-mobile-menu" class="text-spotify-gray hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="px-4 pt-4 pb-6">
+                <div class="flex flex-col space-y-4">
+                    <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Hem</a>
+                    <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Kurser</a>
+                    <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Funktioner</a>
+                    <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Priser</a>
+                    <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Recensioner</a>
+                </div>
+                <div class="mt-8">
+                    <a href="#" class="w-full spotify-btn px-4 py-2 text-base block text-center">
+                        Logga in
+                    </a>
+                </div>
+                <div class="mt-4">
+                    <div class="language-dropdown relative">
+                        <button class="flex items-center text-sm rounded-full text-white focus:outline-none">
+                            <img class="h-8 w-8 rounded-full" src="https://flagcdn.com/w40/se.png" alt="Swedish flag">
+                            <span class="ml-2">Svenska</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="language-dropdown-menu hidden mt-2 w-full rounded-md bg-spotify-black">
+                            <div class="py-1">
+                                <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                    <img src="https://flagcdn.com/w40/gb.png" alt="English flag" class="h-4 w-4 mr-2">
+                                    English
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                    <img src="https://flagcdn.com/w40/de.png" alt="German flag" class="h-4 w-4 mr-2">
+                                    Deutsch
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                    <img src="https://flagcdn.com/w40/fr.png" alt="French flag" class="h-4 w-4 mr-2">
+                                    Français
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="pt-16 pb-4 bg-spotify-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="#" class="inline-flex items-center text-sm font-medium text-spotify-gray hover:text-white">
+                            <i class="fas fa-home mr-2"></i>
+                            Hem
+                        </a>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-spotify-gray text-xs mx-2"></i>
+                            <span class="text-sm font-medium text-white">Logga in</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Login Section -->
+    <section class="py-12 md:py-20 bg-spotify-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="hidden lg:block">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                        Återvänd till din <span class="text-spotify-green">svenska språkresa</span>
+                    </h1>
+                    <p class="text-lg text-spotify-gray mb-8">
+                        Logga in för att fortsätta dina lektioner, spåra ditt framsteg och låsa upp alla funktioner i din Nordilingo-upplevelse.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria K." class="h-12 w-12 rounded-full">
+                        </div>
+                        <div>
+                            <p class="text-white font-medium">"Nordilingo hjälpte mig att förbättra min svenska på bara några månader!"</p>
+                            <p class="text-spotify-gray text-sm">Maria K., Polen</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="login-container rounded-xl p-8 shadow-2xl max-w-md mx-auto">
+                        <h2 class="text-2xl font-bold text-white mb-6 text-center">Logga in på Nordilingo</h2>
+                        
+                        <!-- Social Login Buttons -->
+                        <div class="space-y-4 mb-6">
+                            <button class="social-btn w-full py-3 px-4 rounded-full text-white flex items-center justify-center">
+                                <i class="fab fa-google text-red-500 mr-3"></i>
+                                Fortsätt med Google
+                            </button>
+                            <button class="social-btn w-full py-3 px-4 rounded-full text-white flex items-center justify-center">
+                                <i class="fab fa-facebook-f text-blue-500 mr-3"></i>
+                                Fortsätt med Facebook
+                            </button>
+                            <button class="social-btn w-full py-3 px-4 rounded-full text-white flex items-center justify-center">
+                                <i class="fab fa-apple text-gray-200 mr-3"></i>
+                                Fortsätt med Apple
+                            </button>
+                        </div>
+                        
+                        <!-- Divider -->
+                        <div class="divider text-spotify-gray text-sm my-6">eller</div>
+                        
+                        <!-- Email Login Form -->
+                        <form action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-white mb-1">E-postadress</label>
+                                <div class="relative">
+                                    <input type="email" id="email" name="email" required 
+                                           class="input-field w-full py-3 px-4 rounded text-white placeholder-spotify-gray focus:outline-none focus:ring-2 focus:ring-spotify-green"
+                                           placeholder="din@epost.se">
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-envelope text-spotify-gray"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <label for="password" class="block text-sm font-medium text-white">Lösenord</label>
+                                    <a href="#" class="text-sm font-medium text-spotify-green hover:underline">Glömt lösenord?</a>
+                                </div>
+                                <div class="relative">
+                                    <input type="password" id="password" name="password" required 
+                                           class="input-field w-full py-3 px-4 rounded text-white placeholder-spotify-gray focus:outline-none focus:ring-2 focus:ring-spotify-green"
+                                           placeholder="Ditt lösenord">
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-lock text-spotify-gray"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <input id="remember-me" name="remember-me" type="checkbox" 
+                                           class="remember-me h-4 w-4 rounded border-gray-300 text-spotify-green focus:ring-spotify-green">
+                                    <label for="remember-me" class="ml-2 block text-sm text-white">Kom ihåg mig</label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="w-full spotify-btn py-3 px-4 text-lg font-bold">
+                                Logga in
+                            </button>
+                        </form>
+                        
+                        <div class="mt-6 text-center">
+                            <p class="text-spotify-gray text-sm">
+                                Har du inget konto? 
+                                <a href="#" class="text-spotify-green font-medium hover:underline">Registrera dig</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Trust indicators -->
+                    <div class="mt-8 text-center">
+                        <div class="flex justify-center space-x-6 mb-4">
+                            <i class="fas fa-shield-alt text-spotify-green text-xl"></i>
+                            <i class="fas fa-lock text-spotify-green text-xl"></i>
+                            <i class="fas fa-user-secret text-spotify-green text-xl"></i>
+                        </div>
+                        <p class="text-spotify-gray text-xs">
+                            Vi tar din integritet på allvar. Alla dina uppgifter är säkra och krypterade.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-spotify-dark border-t border-spotify">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="flex items-center mb-6">
+                        <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                        <span class="text-white text-2xl font-bold">Nordilingo</span>
+                    </a>
+                    <p class="text-spotify-gray mb-4">
+                        Revolutionerande svenskainlärning genom teknik och pedagogik.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Produkt</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Funktioner</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Priser</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Kurser</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Appar</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Provperiod</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Hjälpcenter</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Kontakta oss</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Vanliga frågor</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Webinarier</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Företag</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Om oss</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Karriär</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Blogg</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Företagslösningar</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-spotify mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-spotify-gray text-sm mb-4 md:mb-0">
+                    &copy; 2023 Nordilingo AB. Alla rättigheter förbehållna.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-spotify-gray hover:text-white text-sm">Integritetspolicy</a>
+                    <a href="#" class="text-spotify-gray hover:text-white text-sm">Användarvillkor</a>
+                    <a href="#" class="text-spotify-gray hover:text-white text-sm">Kakor</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Language dropdown toggle
+        const languageDropdowns = document.querySelectorAll('.language-dropdown');
+        
+        languageDropdowns.forEach(dropdown => {
+            const button = dropdown.querySelector('button');
+            const menu = dropdown.querySelector('.language-dropdown-menu');
+            
+            button.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    menu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Form validation
+        const loginForm = document.querySelector('form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+                const email = document.getElementById('email');
+                const password = document.getElementById('password');
+                
+                if (!email.value || !password.value) {
+                    e.preventDefault();
+                    alert('Vänligen fyll i både e-post och lösenord');
+                }
+            });
+        }
+        
+        // Social login buttons animation
+        const socialButtons = document.querySelectorAll('.social-btn');
+        socialButtons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'translateY(-2px)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+            });
+        });
+    </script>
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Logga in | Nordilingo - Lär dig svenska på ett roligt sätt",
+      "description": "Logga in på din Nordilingo-konto för att fortsätta din svenska språkresa. Tillgång till alla kurser, lektioner och personliga framsteg.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Nordilingo",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nordilingo.se/images/logo.png"
+        }
+      }
+    }
+    </script>
+</body>
+</html>
