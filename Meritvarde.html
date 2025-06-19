@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meriträknare - Beräkna ditt meritvärde för grundskola & gymnasiet | Nordilingo</title>
+    <meta name="description" content="Använd vår avancerade meriträknare för att beräkna ditt meritvärde för grundskola (årskurs 9) och gymnasiet. Enkelt och korrekt resultat direkt!">
+    <meta name="keywords" content="meriträknare, meritvärde, grundskola, gymnasiet, betygspoäng, betygskalkylator, högskoleprov, antagning">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1DB954; /* Spotify green */
+            --secondary: #191414; /* Spotify black */
+            --dark: #121212;
+            --light: #FFFFFF;
+            --gray: #b3b3b3;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(25, 20, 20, 0.9), rgba(29, 185, 84, 0.8));
+        }
+        
+        .course-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        .spotify-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 500px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .spotify-btn:hover {
+            transform: scale(1.05);
+            background-color: #1ed760;
+        }
+        
+        .spotify-card {
+            background-color: #181818;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+        
+        .spotify-card:hover {
+            background-color: #282828;
+        }
+        
+        .text-spotify-green {
+            color: var(--primary);
+        }
+        
+        .text-spotify-gray {
+            color: var(--gray);
+        }
+        
+        .bg-spotify-black {
+            background-color: var(--secondary);
+        }
+        
+        .bg-spotify-dark {
+            background-color: var(--dark);
+        }
+        
+        .border-spotify {
+            border-color: #333;
+        }
+        
+        .tab-active {
+            border-bottom: 3px solid var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .grade-input {
+            background-color: #282828;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+            padding: 8px 12px;
+            width: 100%;
+        }
+        
+        .grade-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, rgba(29,185,84,0.1) 0%, rgba(18,18,18,1) 100%);
+            border-left: 4px solid var(--primary);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-spotify-dark">
+    <!-- Navigation -->
+    <nav class="bg-spotify-black bg-opacity-90 fixed w-full z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="#" class="flex items-center">
+                            <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                            <span class="text-white text-2xl font-bold">Nordilingo</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Hem</a>
+                            <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kurser</a>
+                            <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium tab-active">Meritvärde</a>
+                            <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Priser</a>
+                            <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Recensioner</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <a href="#" class="ml-4 spotify-btn px-4 py-2 text-sm">
+                            Logga in
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-spotify-gray hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Öppna huvudmeny</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Merit Calculator Section -->
+    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Meriträknare</h1>
+                <p class="text-xl text-spotify-gray max-w-3xl mx-auto">
+                    Beräkna ditt meritvärde för grundskola (årskurs 9) eller gymnasiet. Få en korrekt beräkning av dina betygspoäng för ansökan till gymnasiet eller högskola.
+                </p>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="flex border-b border-spotify mb-8">
+                <button id="grundskola-tab" class="tab-active py-4 px-6 text-sm md:text-base font-medium">
+                    Grundskola (Åk 9)
+                </button>
+                <button id="gymnasiet-tab" class="text-spotify-gray hover:text-white py-4 px-6 text-sm md:text-base font-medium">
+                    Gymnasiet
+                </button>
+            </div>
+            
+            <!-- Grundskola Calculator -->
+            <div id="grundskola-calculator" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Subjects Input -->
+                <div class="lg:col-span-2 spotify-card p-6 rounded-xl">
+                    <h2 class="text-2xl font-bold text-white mb-6">Ange dina betyg</h2>
+                    <p class="text-spotify-gray mb-6">
+                        Max 16 betyg räknas (320 poäng max). Om du har moderna språk som språkval kan du räkna 17 ämnen (340 poäng max).
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Core Subjects -->
+                        <div>
+                            <h3 class="text-white font-medium mb-4">Kärnämnen</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="svenska" class="block text-spotify-gray text-sm mb-1">Svenska</label>
+                                    <select id="svenska" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="engelska" class="block text-spotify-gray text-sm mb-1">Engelska</label>
+                                    <select id="engelska" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="matematik" class="block text-spotify-gray text-sm mb-1">Matematik</label>
+                                    <select id="matematik" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Other Subjects -->
+                        <div>
+                            <h3 class="text-white font-medium mb-4">Övriga ämnen</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="moderna-sprak" class="block text-spotify-gray text-sm mb-1">Moderna språk</label>
+                                    <select id="moderna-sprak" class="grade-input">
+                                        <option value="0">Inget betyg</option>
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="idrott" class="block text-spotify-gray text-sm mb-1">Idrott & hälsa</label>
+                                    <select id="idrott" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="bild" class="block text-spotify-gray text-sm mb-1">Bild</label>
+                                    <select id="bild" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="musik" class="block text-spotify-gray text-sm mb-1">Musik</label>
+                                    <select id="musik" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="sloyd" class="block text-spotify-gray text-sm mb-1">Slöjd</label>
+                                    <select id="sloyd" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="teknik" class="block text-spotify-gray text-sm mb-1">Teknik</label>
+                                    <select id="teknik" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="fysik" class="block text-spotify-gray text-sm mb-1">Fysik</label>
+                                    <select id="fysik" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="kemi" class="block text-spotify-gray text-sm mb-1">Kemi</label>
+                                    <select id="kemi" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="biologi" class="block text-spotify-gray text-sm mb-1">Biologi</label>
+                                    <select id="biologi" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="geografi" class="block text-spotify-gray text-sm mb-1">Geografi</label>
+                                    <select id="geografi" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="historia" class="block text-spotify-gray text-sm mb-1">Historia</label>
+                                    <select id="historia" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="religion" class="block text-spotify-gray text-sm mb-1">Religion</label>
+                                    <select id="religion" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="samhallskunskap" class="block text-spotify-gray text-sm mb-1">Samhällskunskap</label>
+                                    <select id="samhallskunskap" class="grade-input">
+                                        <option value="20">A (20p)</option>
+                                        <option value="17.5">B (17.5p)</option>
+                                        <option value="15">C (15p)</option>
+                                        <option value="12.5">D (12.5p)</option>
+                                        <option value="10">E (10p)</option>
+                                        <option value="0">F (0p)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button id="calculate-grundskola" class="spotify-btn px-6 py-3 w-full md:w-auto">
+                            <i class="fas fa-calculator mr-2"></i> Beräkna meritvärde
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Results -->
+                <div>
+                    <div id="grundskola-result" class="result-card p-6 rounded-xl hidden">
+                        <h2 class="text-2xl font-bold text-white mb-4">Ditt meritvärde</h2>
+                        
+                        <div class="flex items-center mb-6">
+                            <div class="relative w-24 h-24 mr-4">
+                                <svg class="w-full h-full" viewBox="0 0 36 36">
+                                    <circle class="text-gray-700" stroke-width="4" stroke="currentColor" fill="none" cx="18" cy="18" r="16"></circle>
+                                    <circle id="merit-ring" class="progress-ring__circle text-spotify-green" stroke-width="4" stroke-linecap="round" stroke="currentColor" fill="none" cx="18" cy="18" r="16" stroke-dasharray="100" stroke-dashoffset="100"></circle>
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span id="merit-percentage" class="text-white font-bold text-xl">0%</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-spotify-gray">Totalt meritvärde</p>
+                                <p id="total-merit" class="text-white text-3xl font-bold">0</p>
+                                <p id="max-merit" class="text-spotify-gray text-sm">av 320 poäng</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-spotify-gray text-sm">Antal betyg som räknas</p>
+                                <p id="grade-count" class="text-white font-medium">0 av 16</p>
+                            </div>
+                            <div>
+                                <p class="text-spotify-gray text-sm">Genomsnittligt betyg</p>
+                                <p id="average-grade" class="text-white font-medium">-</p>
+                            </div>
+                            <div>
+                                <p class="text-spotify-gray text-sm">Bästa ämnen</p>
+                                <p id="best-subjects" class="text-white font-medium">-</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t border-spotify">
+                            <p class="text-spotify-gray text-sm mb-2">Tips för förbättring:</p>
+                            <ul class="text-spotify-gray text-sm space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-spotify-green text-xs mt-1 mr-2"></i>
+                                    <span>Fokusera på att förbättra dina lägsta betyg</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-spotify-green text-xs mt-1 mr-2"></i>
+                                    <span>Om du har moderna språk kan du räkna fler betyg</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-spotify-green text-xs mt-1 mr-2"></i>
+                                    <span>Varje högre betyg ger fler meritpoäng</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Information Card -->
+                    <div class="spotify-card p-6 rounded-xl mt-8">
+                        <h3 class="text-xl font-bold text-white mb-4">Om meritvärde i grundskolan</h3>
+                        <p class="text-spotify-gray text-sm mb-4">
+                            Meritvärdet beräknas genom att summera poängen från dina 16 högsta betyg (17 om du har moderna språk).
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">A</span>
+                                </div>
+                                <span class="text-white text-sm">20 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">B</span>
+                                </div>
+                                <span class="text-white text-sm">17.5 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">C</span>
+                                </div>
+                                <span class="text-white text-sm">15 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">D</span>
+                                </div>
+                                <span class="text-white text-sm">12.5 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">E</span>
+                                </div>
+                                <span class="text-white text-sm">10 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-gray-400 text-sm font-bold">F</span>
+                                </div>
+                                <span class="text-white text-sm">0 poäng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gymnasiet Calculator (Hidden by default) -->
+            <div id="gymnasiet-calculator" class="hidden grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Subjects Input -->
+                <div class="lg:col-span-2 spotify-card p-6 rounded-xl">
+                    <h2 class="text-2xl font-bold text-white mb-6">Ange dina gymnasiebetyg</h2>
+                    <p class="text-spotify-gray mb-6">
+                        Max betygsvärde från kurser är 20.00. Du kan få upp till 2.5 extra meritpoäng från vissa kurser.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Core Subjects -->
+                        <div>
+                            <h3 class="text-white font-medium mb-4">Kärnämnen</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="g-svenska" class="block text-spotify-gray text-sm mb-1">Svenska</label>
+                                    <select id="g-svenska" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-engelska" class="block text-spotify-gray text-sm mb-1">Engelska</label>
+                                    <select id="g-engelska" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-engelska-7" class="block text-spotify-gray text-sm mb-1">Engelska 7</label>
+                                    <select id="g-engelska-7" class="grade-input">
+                                        <option value="0">Ej avklarad</option>
+                                        <option value="1">Avklarad (1.0 extra merit)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-matematik" class="block text-spotify-gray text-sm mb-1">Matematik</label>
+                                    <select id="g-matematik" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-matte-extra" class="block text-spotify-gray text-sm mb-1">Matematik steg över behörighet</label>
+                                    <select id="g-matte-extra" class="grade-input">
+                                        <option value="0">Inga extra steg</option>
+                                        <option value="0.5">1 steg (0.5 extra merit)</option>
+                                        <option value="1">2 steg (1.0 extra merit)</option>
+                                        <option value="1.5">3 steg (1.5 extra merit)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Other Subjects -->
+                        <div>
+                            <h3 class="text-white font-medium mb-4">Övriga ämnen</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="g-moderna-sprak" class="block text-spotify-gray text-sm mb-1">Moderna språk</label>
+                                    <select id="g-moderna-sprak" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-sprak-extra" class="block text-spotify-gray text-sm mb-1">Moderna språk steg 3-5</label>
+                                    <select id="g-sprak-extra" class="grade-input">
+                                        <option value="0">Inga extra steg</option>
+                                        <option value="0.5">Steg 3 (0.5 extra merit)</option>
+                                        <option value="1">Steg 4 (1.0 extra merit)</option>
+                                        <option value="1.5">Steg 5 (1.5 extra merit)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-naturvetenskap" class="block text-spotify-gray text-sm mb-1">Naturvetenskap</label>
+                                    <select id="g-naturvetenskap" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-samhallskunskap" class="block text-spotify-gray text-sm mb-1">Samhällskunskap</label>
+                                    <select id="g-samhallskunskap" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-historia" class="block text-spotify-gray text-sm mb-1">Historia</label>
+                                    <select id="g-historia" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-religion" class="block text-spotify-gray text-sm mb-1">Religion</label>
+                                    <select id="g-religion" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-idrott" class="block text-spotify-gray text-sm mb-1">Idrott & hälsa</label>
+                                    <select id="g-idrott" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="g-estetiska" class="block text-spotify-gray text-sm mb-1">Estetiska ämnen</label>
+                                    <select id="g-estetiska" class="grade-input">
+                                        <option value="20">A (20.0)</option>
+                                        <option value="17.5">B (17.5)</option>
+                                        <option value="15">C (15.0)</option>
+                                        <option value="12.5">D (12.5)</option>
+                                        <option value="10">E (10.0)</option>
+                                        <option value="0">F (0.0)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button id="calculate-gymnasiet" class="spotify-btn px-6 py-3 w-full md:w-auto">
+                            <i class="fas fa-calculator mr-2"></i> Beräkna meritvärde
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Results -->
+                <div>
+                    <div id="gymnasiet-result" class="result-card p-6 rounded-xl hidden">
+                        <h2 class="text-2xl font-bold text-white mb-4">Ditt meritvärde</h2>
+                        
+                        <div class="flex items-center mb-6">
+                            <div class="relative w-24 h-24 mr-4">
+                                <svg class="w-full h-full" viewBox="0 0 36 36">
+                                    <circle class="text-gray-700" stroke-width="4" stroke="currentColor" fill="none" cx="18" cy="18" r="16"></circle>
+                                    <circle id="g-merit-ring" class="progress-ring__circle text-spotify-green" stroke-width="4" stroke-linecap="round" stroke="currentColor" fill="none" cx="18" cy="18" r="16" stroke-dasharray="100" stroke-dashoffset="100"></circle>
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span id="g-merit-percentage" class="text-white font-bold text-xl">0%</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-spotify-gray">Totalt meritvärde</p>
+                                <p id="g-total-merit" class="text-white text-3xl font-bold">0.00</p>
+                                <p id="g-max-merit" class="text-spotify-gray text-sm">av 22.50 max</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-spotify-gray text-sm">Betygsvärde från kurser</p>
+                                <p id="g-course-value" class="text-white font-medium">0.00</p>
+                            </div>
+                            <div>
+                                <p class="text-spotify-gray text-sm">Extra meritpoäng</p>
+                                <p id="g-extra-merit" class="text-white font-medium">0.00</p>
+                            </div>
+                            <div>
+                                <p class="text-spotify-gray text-sm">Genomsnittligt betyg</p>
+                                <p id="g-average-grade" class="text-white font-medium">-</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-6 border-t border-spotify">
+                            <p class="text-spotify-gray text-sm mb-2">Tips för högskoleansökan:</p>
+                            <ul class="text-spotify-gray text-sm space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-spotify-green text-xs mt-1 mr-2"></i>
+                                    <span>Engelska 7 ger 1.0 extra meritpoäng</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-spotify-green text-xs mt-1 mr-2"></i>
+                                    <span>Moderna språk steg 3-5 ger 0.5-1.5 extra</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-spotify-green text-xs mt-1 mr-2"></i>
+                                    <span>Matematik steg över behörighet ger extra</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Information Card -->
+                    <div class="spotify-card p-6 rounded-xl mt-8">
+                        <h3 class="text-xl font-bold text-white mb-4">Om meritvärde i gymnasiet</h3>
+                        <p class="text-spotify-gray text-sm mb-4">
+                            Meritvärdet för högskolan beräknas från dina gymnasiebetyg med möjlighet till extra meritpoäng från vissa kurser.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">A</span>
+                                </div>
+                                <span class="text-white text-sm">20.0 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">B</span>
+                                </div>
+                                <span class="text-white text-sm">17.5 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">C</span>
+                                </div>
+                                <span class="text-white text-sm">15.0 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">D</span>
+                                </div>
+                                <span class="text-white text-sm">12.5 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-spotify-green text-sm font-bold">E</span>
+                                </div>
+                                <span class="text-white text-sm">10.0 poäng</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-gray-400 text-sm font-bold">F</span>
+                                </div>
+                                <span class="text-white text-sm">0.0 poäng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Information Section -->
+    <section class="py-16 bg-spotify-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Mer om meritvärden</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- SFI Info -->
+                <div class="spotify-card p-6 rounded-xl">
+                    <div class="w-12 h-12 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-language text-spotify-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">SFI – Svenska för invandrare</h3>
+                    <p class="text-spotify-gray text-sm mb-4">
+                        Betygsskala: A, B, C, D, E, F
+                    </p>
+                    <p class="text-spotify-gray text-sm">
+                        SFI räknas inte in i meritvärdet för gymnasiet eller universitet. SFI är för språkinlärning och ger inte meritpoäng.
+                    </p>
+                </div>
+                
+                <!-- Grundskola Info -->
+                <div class="spotify-card p-6 rounded-xl">
+                    <div class="w-12 h-12 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-school text-spotify-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Grundskolan (Åk 9)</h3>
+                    <p class="text-spotify-gray text-sm mb-2">
+                        Betygsskala: A=20p, B=17.5p, C=15p, D=12.5p, E=10p, F=0p
+                    </p>
+                    <p class="text-spotify-gray text-sm">
+                        Max 16 betyg räknas (320p max). Med moderna språk som språkval kan man räkna 17 ämnen (340p max).
+                    </p>
+                </div>
+                
+                <!-- Gymnasiet Info -->
+                <div class="spotify-card p-6 rounded-xl">
+                    <div class="w-12 h-12 bg-spotify-green bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-spotify-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Gymnasiet</h3>
+                    <p class="text-spotify-gray text-sm mb-2">
+                        Betygsskala: A=20.0, B=17.5, C=15.0, D=12.5, E=10.0, F=0.0
+                    </p>
+                    <p class="text-spotify-gray text-sm">
+                        Max betygsvärde från kurser = 20.00. Extra meritpoäng (max 2.5p) från Engelska 7, moderna språk och matematik.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-16 bg-spotify-dark">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Vanliga frågor om meritvärde</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="spotify-card rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                        <span class="text-lg font-medium text-white">Vilka betyg räknas in i meritvärdet?</span>
+                        <i class="fas fa-chevron-down text-spotify-green transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-spotify-gray">
+                            För grundskolan räknas dina 16 högsta betyg (17 om du har moderna språk som språkval). För gymnasiet räknas alla dina gymnasiebetyg, men maxvärdet är 20.00. Dessutom kan du få extra meritpoäng från vissa kurser.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="spotify-card rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                        <span class="text-lg font-medium text-white">Hur får jag extra meritpoäng i gymnasiet?</span>
+                        <i class="fas fa-chevron-down text-spotify-green transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-spotify-gray">
+                            Du kan få upp till 2.5 extra meritpoäng från följande kurser:
+                            <br>- Engelska 7: 1.0 poäng
+                            <br>- Moderna språk steg 3-5: 0.5-1.5 poäng
+                            <br>- Matematik steg över behörighet: 0.5-1.5 poäng
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="spotify-card rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                        <span class="text-lg font-medium text-white">Vad är ett bra meritvärde?</span>
+                        <i class="fas fa-chevron-down text-spotify-green transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-spotify-gray">
+                            För grundskolan:
+                            <br>- 300+ poäng: Mycket bra
+                            <br>- 250-299 poäng: Bra
+                            <br>- 200-249 poäng: Genomsnittligt
+                            <br>- Under 200 poäng: Förbättringsområde
+                            
+                            <br><br>För gymnasiet:
+                            <br>- 20.0+ (med extra merit): Utmärkt
+                            <br>- 17.5-19.9: Mycket bra
+                            <br>- 15.0-17.4: Bra
+                            <br>- Under 15.0: Förbättringsområde
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="spotify-card rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                        <span class="text-lg font-medium text-white">Räknas SFI in i meritvärdet?</span>
+                        <i class="fas fa-chevron-down text-spotify-green transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-spotify-gray">
+                            Nej, SFI (Svenska för invandrare) räknas inte in i meritvärdet vare sig för gymnasiet eller universitet. SFI är en språkinlärningskurs och ger inte meritpoäng.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="spotify-card rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 flex justify-between items-center focus:outline-none">
+                        <span class="text-lg font-medium text-white">Hur påverkar meritvärdet min chans att komma in på gymnasiet/högskola?</span>
+                        <i class="fas fa-chevron-down text-spotify-green transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-spotify-gray">
+                            För gymnasiet är meritvärdet den främsta urvalsgruppen. Högre meritvärde ger större chans att komma in på populära program.
+                            <br><br>För högskolan är meritvärdet en del av urvalet, tillsammans med högskoleprovet och eventuella andra urvalsgrupper. Vissa utbildningar har höga meritgränser.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-spotify-black to-spotify-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Vill du förbättra dina betyg?</h2>
+            <p class="text-xl text-gray-100 mb-8 max-w-3xl mx-auto">
+                Våra språkkurser kan hjälpa dig att höja dina betyg i svenska och engelska, vilket ger högre meritvärde.
+            </p>
+            <button class="spotify-btn px-8 py-4 text-lg">
+                <i class="fas fa-book-open mr-2"></i> Utforska våra kurser
+            </button>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-spotify-dark border-t border-spotify">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="flex items-center mb-6">
+                        <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                        <span class="text-white text-2xl font-bold">Nordilingo</span>
+                    </a>
+                    <p class="text-spotify-gray mb-4">
+                        Revolutionerande svenskainlärning genom teknik och pedagogik.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Produkt</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Kurser</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Priser</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Appar</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Meriträknare</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Hjälpcenter</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Kontakta oss</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Vanliga frågor</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Företag</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Om oss</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Karriär</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Blogg</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-spotify mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-spotify-gray text-sm mb-4 md:mb-0">
+                    &copy; 2023 Nordilingo AB. Alla rättigheter förbehållna.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-spotify-gray hover:text-white text-sm">Integritetspolicy</a>
+                    <a href="#" class="text-spotify-gray hover:text-white text-sm">Användarvillkor</a>
+                    <a href="#" class="text-spotify-gray hover:text-white text-sm">Kakor</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching
+        const grundskolaTab = document.getElementById('grundskola-tab');
+        const gymnasietTab = document.getElementById('gymnasiet-tab');
+        const grundskolaCalc = document.getElementById('grundskola-calculator');
+        const gymnasietCalc = document.getElementById('gymnasiet-calculator');
+        
+        grundskolaTab.addEventListener('click', () => {
+            grundskolaTab.classList.add('tab-active');
+            grundskolaTab.classList.remove('text-spotify-gray');
+            grundskolaTab.classList.add('text-white');
+            
+            gymnasietTab.classList.remove('tab-active');
+            gymnasietTab.classList.add('text-spotify-gray');
+            gymnasietTab.classList.remove('text-white');
+            
+            grundskolaCalc.classList.remove('hidden');
+            gymnasietCalc.classList.add('hidden');
+        });
+        
+        gymnasietTab.addEventListener('click', () => {
+            gymnasietTab.classList.add('tab-active');
+            gymnasietTab.classList.remove('text-spotify-gray');
+            gymnasietTab.classList.add('text-white');
+            
+            grundskolaTab.classList.remove('tab-active');
+            grundskolaTab.classList.add('text-spotify-gray');
+            grundskolaTab.classList.remove('text-white');
+            
+            gymnasietCalc.classList.remove('hidden');
+            grundskolaCalc.classList.add('hidden');
+        });
+        
+        // Grundskola Calculator
+        document.getElementById('calculate-grundskola').addEventListener('click', calculateGrundskola);
+        
+        function calculateGrundskola() {
+            // Get all grade values
+            const subjects = [
+                'svenska', 'engelska', 'matematik', 'moderna-sprak', 
+                'idrott', 'bild', 'musik', 'sloyd', 'teknik', 
+                'fysik', 'kemi', 'biologi', 'geografi', 'historia', 
+                'religion', 'samhallskunskap'
+            ];
+            
+            let grades = [];
+            let modernLanguage = false;
+            
+            subjects.forEach(subject => {
+                const select = document.getElementById(subject);
+                const value = parseFloat(select.value);
+                
+                if (subject === 'moderna-sprak' && value > 0) {
+                    modernLanguage = true;
+                }
+                
+                if (value > 0) {
+                    grades.push(value);
+                }
+            });
+            
+            // Sort grades descending
+            grades.sort((a, b) => b - a);
+            
+            // Calculate based on max grades (16 or 17 with modern language)
+            const maxGrades = modernLanguage ? 17 : 16;
+            const countedGrades = grades.slice(0, maxGrades);
+            const total = countedGrades.reduce((sum, grade) => sum + grade, 0);
+            const maxPossible = maxGrades * 20;
+            const percentage = Math.round((total / maxPossible) * 100);
+            
+            // Calculate average
+            const average = countedGrades.length > 0 ? (total / countedGrades.length).toFixed(1) : 0;
+            
+            // Find best subjects (top 3)
+            const bestSubjects = [];
+            subjects.forEach(subject => {
+                const select = document.getElementById(subject);
+                const value = parseFloat(select.value);
+                
+                if (value === 20) {
+                    const subjectName = {
+                        'svenska': 'Svenska',
+                        'engelska': 'Engelska',
+                        'matematik': 'Matematik',
+                        'moderna-sprak': 'Moderna språk',
+                        'idrott': 'Idrott',
+                        'bild': 'Bild',
+                        'musik': 'Musik',
+                        'sloyd': 'Slöjd',
+                        'teknik': 'Teknik',
+                        'fysik': 'Fysik',
+                        'kemi': 'Kemi',
+                        'biologi': 'Biologi',
+                        'geografi': 'Geografi',
+                        'historia': 'Historia',
+                        'religion': 'Religion',
+                        'samhallskunskap': 'Samhällskunskap'
+                    }[subject];
+                    
+                    bestSubjects.push(subjectName);
+                }
+            });
+            
+            // Update UI
+            document.getElementById('total-merit').textContent = total;
+            document.getElementById('merit-percentage').textContent = percentage + '%';
+            document.getElementById('grade-count').textContent = countedGrades.length + ' av ' + maxGrades;
+            document.getElementById('average-grade').textContent = average;
+            document.getElementById('best-subjects').textContent = bestSubjects.length > 0 ? bestSubjects.join(', ') : '-';
+            document.getElementById('max-merit').textContent = 'av ' + maxPossible + ' poäng';
+            
+            // Update progress ring
+            const circle = document.getElementById('merit-ring');
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (percentage / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+            
+            // Show result
+            document.getElementById('grundskola-result').classList.remove('hidden');
+        }
+        
+        // Gymnasiet Calculator
+        document.getElementById('calculate-gymnasiet').addEventListener('click', calculateGymnasiet);
+        
+        function calculateGymnasiet() {
+            // Get course grades
+            const courseSubjects = [
+                'g-svenska', 'g-engelska', 'g-matematik', 'g-moderna-sprak',
+                'g-naturvetenskap', 'g-samhallskunskap', 'g-historia', 
+                'g-religion', 'g-idrott', 'g-estetiska'
+            ];
+            
+            let courseValues = [];
+            
+            courseSubjects.forEach(subject => {
+                const select = document.getElementById(subject);
+                const value = parseFloat(select.value);
+                
+                if (value > 0) {
+                    courseValues.push(value);
+                }
+            });
+            
+            // Calculate course average (max 20.0)
+            const courseTotal = courseValues.reduce((sum, grade) => sum + grade, 0);
+            const courseAverage = courseValues.length > 0 ? (courseTotal / courseValues.length) : 0;
+            const courseValue = Math.min(courseAverage, 20.0);
+            
+            // Calculate extra merit points
+            const engelska7 = parseFloat(document.getElementById('g-engelska-7').value);
+            const sprakExtra = parseFloat(document.getElementById('g-sprak-extra').value);
+            const matteExtra = parseFloat(document.getElementById('g-matte-extra').value);
+            
+            const extraMerit = engelska7 + sprakExtra + matteExtra;
+            const totalMerit = courseValue + extraMerit;
+            const maxMerit = 22.5;
+            const percentage = Math.round((totalMerit / maxMerit) * 100);
+            
+            // Update UI
+            document.getElementById('g-total-merit').textContent = totalMerit.toFixed(2);
+            document.getElementById('g-merit-percentage').textContent = percentage + '%';
+            document.getElementById('g-course-value').textContent = courseValue.toFixed(2);
+            document.getElementById('g-extra-merit').textContent = extraMerit.toFixed(2);
+            document.getElementById('g-average-grade').textContent = courseAverage.toFixed(2);
+            document.getElementById('g-max-merit').textContent = 'av ' + maxMerit + ' max';
+            
+            // Update progress ring
+            const circle = document.getElementById('g-merit-ring');
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (percentage / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+            
+            // Show result
+            document.getElementById('gymnasiet-result').classList.remove('hidden');
+        }
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    </script>
+</body>
+</html>
