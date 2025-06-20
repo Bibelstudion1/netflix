@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Användarvillkor | Nordilingo - Villkor för användning av våra tjänster</title>
+    <meta name="description" content="Läs Nordilingos användarvillkor för att förstå dina rättigheter och skyldigheter när du använder våra språkinlärningstjänster. Inklusive ansvarsbegränsningar och användarregler.">
+    <meta name="keywords" content="användarvillkor, användaravtal, tjänstevillkor, språkkurser, svenska online, rättigheter skyldigheter">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.nordilingo.com/anvandarvillkor">
+    
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:title" content="Användarvillkor | Nordilingo - Villkor för användning av våra tjänster">
+    <meta property="og:description" content="Läs de fullständiga användarvillkoren för Nordilingos språkinlärningstjänster.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.nordilingo.com/anvandarvillkor">
+    <meta property="og:image" content="https://www.nordilingo.com/image/terms-og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Användarvillkor",
+      "description": "Nordilingos villkor för användning av tjänster och webbplats.",
+      "url": "https://www.nordilingo.com/anvandarvillkor",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Nordilingo AB",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.nordilingo.com/logo.png"
+        }
+      }
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1DB954; /* Spotify green */
+            --secondary: #191414; /* Spotify black */
+            --dark: #121212;
+            --light: #FFFFFF;
+            --gray: #b3b3b3;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(25, 20, 20, 0.9), rgba(29, 185, 84, 0.8));
+        }
+        
+        .language-dropdown:hover .language-dropdown-menu {
+            display: block;
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Spotify-like button */
+        .spotify-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 500px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .spotify-btn:hover {
+            transform: scale(1.05);
+            background-color: #1ed760;
+        }
+
+        /* Spotify-like text colors */
+        .text-spotify-green {
+            color: var(--primary);
+        }
+
+        .text-spotify-gray {
+            color: var(--gray);
+        }
+
+        .bg-spotify-black {
+            background-color: var(--secondary);
+        }
+
+        .bg-spotify-dark {
+            background-color: var(--dark);
+        }
+
+        .border-spotify {
+            border-color: #333;
+        }
+        
+        /* Terms specific styles */
+        .terms-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .terms-header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .terms-content h2 {
+            color: var(--primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .terms-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        .terms-content p, .terms-content ul {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .terms-content ul {
+            padding-left: 1.5rem;
+        }
+        
+        .terms-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .last-updated {
+            font-style: italic;
+            color: var(--gray);
+            text-align: right;
+            margin-top: 2rem;
+        }
+        
+        .highlight-box {
+            background-color: rgba(29, 185, 84, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-spotify-dark">
+    <!-- Navigation -->
+    <nav class="bg-spotify-black bg-opacity-90 fixed w-full z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="flex items-center">
+                            <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                            <span class="text-white text-2xl font-bold">Nordilingo</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="index.html" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Hem</a>
+                            <a href="kurser.html" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kurser</a>
+                            <a href="Meritvarde.html" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Meritvärde</a>
+                            <a href="#pricing" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Priser</a>
+                            <a href="#testimonials" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Recensioner</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <div class="language-dropdown relative ml-3">
+                            <button class="flex items-center text-sm rounded-full text-white focus:outline-none">
+                                <span class="sr-only">Språk</span>
+                                <img class="h-8 w-8 rounded-full" src="https://flagcdn.com/w40/se.png" alt="Swedish flag">
+                                <span class="ml-2">Svenska</span>
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div class="language-dropdown-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-spotify-black ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/gb.png" alt="English flag" class="h-4 w-4 mr-2">
+                                        English
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/de.png" alt="German flag" class="h-4 w-4 mr-2">
+                                        Deutsch
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/fr.png" alt="French flag" class="h-4 w-4 mr-2">
+                                        Français
+                                    </a>
+                                </div>
+                            </div>
+                       </div>
+                        <a href="logga-in.html" class="ml-4 spotify-btn px-4 py-2 text-sm">
+                            Logga in
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-spotify-gray hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Öppna huvudmeny</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 bg-spotify-black z-50 overflow-y-auto">
+            <div class="px-4 pt-5 pb-4 flex justify-between items-center border-b border-gray-800">
+                <a href="index.html" class="flex items-center">
+                    <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                    <span class="text-white text-2xl font-bold">Nordilingo</span>
+                </a>
+                <button id="close-mobile-menu" class="text-spotify-gray hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="px-4 pt-4 pb-6">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Hem</a>
+                    <a href="#courses" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Kurser</a>
+                    <a href="Meritvarde.html" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Meritvärde</a>
+                    <a href="#pricing" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Priser</a>
+                    <a href="#testimonials" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Recensioner</a>
+                </div>
+                <div class="mt-8">
+                    <a href="logga-in.html" class="block w-full text-center spotify-btn px-4 py-2 text-base">
+                        Logga in
+                    </a>
+                </div>
+                <div class="mt-4">
+                    <div class="language-dropdown relative">
+                        <button class="flex items-center text-sm rounded-full text-white focus:outline-none">
+                            <img class="h-8 w-8 rounded-full" src="https://flagcdn.com/w40/se.png" alt="Swedish flag">
+                            <span class="ml-2">Svenska</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="language-dropdown-menu hidden mt-2 w-full rounded-md bg-spotify-black">
+                            <div class="py-1">
+                                <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                    <img src="https://flagcdn.com/w40/gb.png" alt="English flag" class="h-4 w-4 mr-2">
+                                    English
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                    <img src="https://flagcdn.com/w40/de.png" alt="German flag" class="h-4 w-4 mr-2">
+                                    Deutsch
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                    <img src="https://flagcdn.com/w40/fr.png" alt="French flag" class="h-4 w-4 mr-2">
+                                    Français
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <section class="hero-gradient rounded-xl p-8 md:p-12 mb-12">
+                <div class="text-center">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Användarvillkor</h1>
+                    <p class="text-lg text-spotify-gray max-w-3xl mx-auto">
+                        Genom att använda Nordilingos tjänster godkänner du dessa villkor. Läs noggrant för att förstå dina rättigheter och skyldigheter.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Terms Content -->
+            <div class="terms-section bg-spotify-black rounded-xl p-6 md:p-10 shadow-lg">
+                <div class="terms-header">
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">Nordilingos Användarvillkor</h2>
+                    <p class="text-spotify-gray">
+                        Senast uppdaterad: 15 juni 2023
+                    </p>
+                </div>
+                
+                <div class="highlight-box">
+                    <p class="font-medium text-white">
+                        <i class="fas fa-exclamation-circle text-spotify-green mr-2"></i>
+                        Viktigt: Genom att registrera ett konto eller använda Nordilingos tjänster godkänner du dessa användarvillkor i sin helhet.
+                    </p>
+                </div>
+                
+                <div class="terms-content text-spotify-gray">
+                    <p>
+                        Välkommen till Nordilingo AB ("Nordilingo", "vi", "oss", "vår"). Dessa användarvillkor ("Villkor") reglerar din användning av vår webbplats, 
+                        mobilapplikationer och relaterade tjänster (tillsammans "Tjänsten").
+                    </p>
+                    
+                    <h2>1. Accept av villkoren</h2>
+                    <p>
+                        Genom att använda Tjänsten godkänner du dessa Villkor och vår <a href="integritetspolicy.html" class="text-spotify-green hover:underline">Integritetspolicy</a>. 
+                        Om du inte godkänner dessa Villkor får du inte använda Tjänsten.
+                    </p>
+                    <p>
+                        Du bekräftar att du är minst 13 år gammal (eller den lagliga åldern i ditt land för att ingå bindande avtal) och har behörighet att ingå detta avtal.
+                    </p>
+                    
+                    <h2>2. Beskrivning av tjänsten</h2>
+                    <p>
+                        Nordilingo tillhandahåller en onlineplattform för språkinlärning, med fokus på svenska som andraspråk. Tjänsten inkluderar:
+                    </p>
+                    <ul>
+                        <li>Interaktiva lektioner och övningar</li>
+                        <li>Personliga inlärningsvägar</li>
+                        <li>Bedömning och feedback</li>
+                        <li>Community-funktioner</li>
+                        <li>Premiumfunktioner (mot betalning)</li>
+                    </ul>
+                    <p>
+                        Vi förbehåller oss rätten att ändra, uppdatera eller avsluta Tjänsten eller delar av denna när som helst utan föregående meddelande.
+                    </p>
+                    
+                    <h2>3. Konton och registrering</h2>
+                    <h3>3.1 Kontoskapande</h3>
+                    <p>
+                        För att komma åt vissa funktioner måste du skapa ett konto. Du samtycker till:
+                    </p>
+                    <ul>
+                        <li>Ange sanningsenlig, korrekt och komplett information</li>
+                        <li>Uppdatera din information för att hålla den aktuell</li>
+                        <li>Skydda ditt lösenord och ansvara för all aktivitet under ditt konto</li>
+                        <li>Omedelbart meddela oss om obehörig användning av ditt konto</li>
+                    </ul>
+                    
+                    <h3>3.2 Kontobegränsningar</h3>
+                    <p>
+                        Du får inte:
+                    </p>
+                    <ul>
+                        <li>Använda någon annans konto utan tillstånd</li>
+                        <li>Skapa flera konton för att undvika betalning eller begränsningar</li>
+                        <li>Använda Tjänsten på sätt som kringgår dess avsedda användning</li>
+                    </ul>
+                    
+                    <h2>4. Betalningsvillkor</h2>
+                    <h3>4.1 Prenumerationer</h3>
+                    <p>
+                        Vissa delar av Tjänsten kan kräva betalning ("Premiumtjänster"). Genom att registrera dig för Premiumtjänster godkänner du:
+                    </p>
+                    <ul>
+                        <li>Betalning av alla avgifter enligt de prislistor som gäller vid tillfället</li>
+                        <li>Att prenumerationer förnyas automatiskt om inte sägs upp</li>
+                        <li>Att vi kan justera priser med 30 dagars föregående meddelande</li>
+                    </ul>
+                    
+                    <h3>4.2 Återbetalning och uppsägning</h3>
+                    <p>
+                        Alla betalningar är slutgiltiga och återbetalas inte, om inte annat anges eller enligt lag. Du kan när som helst säga upp din prenumeration, 
+                        men du får ingen återbetalning för redan betalade perioder.
+                    </p>
+                    
+                    <h2>5. Användarbeteende och innehåll</h2>
+                    <h3>5.1 Användaransvar</h3>
+                    <p>
+                        Du ansvarar för allt innehåll du laddar upp, publicerar eller delar via Tjänsten ("Ditt Innehåll"). Du garanterar att:
+                    </p>
+                    <ul>
+                        <li>Du har alla nödvändiga rättigheter till Ditt Innehåll</li>
+                        <li>Ditt Innehåll inte bryter mot någon tredje parts immateriella rättigheter</li>
+                        <li>Ditt Innehåll inte är olagligt, stötande eller skadligt</li>
+                    </ul>
+                    
+                    <h3>5.2 Förbjudet beteende</h3>
+                    <p>
+                        Du får inte använda Tjänsten till att:
+                    </p>
+                    <ul>
+                        <li>Bryta mot lagar eller tredje parts rättigheter</li>
+                        <li>Spamma, distribuera skadlig programvara eller bedriva phishing</li>
+                        <li>Försöka kringgå tekniska begränsningar i Tjänsten</li>
+                        <li>Störa eller överbelasta våra servrar eller nätverk</li>
+                        <li>Systematiskt extrahera data från Tjänsten ("screen scraping")</li>
+                    </ul>
+                    
+                    <h2>6. Immateriella rättigheter</h2>
+                    <p>
+                        Tjänsten och allt innehåll som tillhandahålls av Nordilingo (exklusive Ditt Innehåll) är Nordilingos eller våra licensgivares egendom och skyddas 
+                        av upphovsrätt, varumärken och andra lagar. Du får inte kopiera, modifiera, distribuera, sälja eller hyra ut någon del av Tjänsten utan vårt uttryckliga skriftliga tillstånd.
+                    </p>
+                    <p>
+                        Genom att ladda upp Ditt Innehåll beviljar du Nordilingo en icke-exklusiv, överlåtbar, underlicensierbar, royaltyfri, global licens att använda, 
+                        reproducera, modifiera och visa Ditt Innehåll i samband med Tjänsten.
+                    </p>
+                    
+                    <h2>7. Ansvar och garantibegränsningar</h2>
+                    <h3>7.1 Tjänsten tillhandahålls "som den är"</h3>
+                    <p>
+                        Nordilingo tillhandahåller Tjänsten "som den är" och "som tillgänglig" utan några garantier, vare sig uttryckliga eller underförstådda. 
+                        Vi garanterar inte att Tjänsten kommer att vara ofelbar, säker eller oavbruten, eller att den kommer att uppfylla dina specifika krav.
+                    </p>
+                    
+                    <h3>7.2 Ansvarssbegränsning</h3>
+                    <p>
+                        Under inga omständigheter ska Nordilingo vara ansvarigt för några indirekta, incidentella, straffande, särskilda eller följdskador 
+                        (inklusive förlust av data eller vinst) som uppstår från eller i samband med din användning av Tjänsten.
+                    </p>
+                    
+                    <h2>8. Uppsägning</h2>
+                    <p>
+                        Vi kan omedelbart upphöra eller avbryta din tillgång till Tjänsten utan föregående meddelande eller ansvar om du bryter mot dessa Villkor. 
+                        Vid uppsägning upphör din rätt att använda Tjänsten omedelbart.
+                    </p>
+                    <p>
+                        Du kan när som helst säga upp ditt konto genom att kontakta oss eller via kontoinställningarna. 
+                        Notera att alla avgifter du har betalat är icke-återbetalningsbara.
+                    </p>
+                    
+                    <h2>9. Ändringar av villkoren</h2>
+                    <p>
+                        Vi förbehåller oss rätten att ändra dessa Villkor när som helst. Om vi gör betydande ändringar kommer vi att meddela dig via e-post 
+                        eller genom en tydlig notis på vår webbplats. Din fortsatta användning av Tjänsten efter att ändringarna trätt i kraft utgör acceptans av de nya Villkoren.
+                    </p>
+                    
+                    <h2>10. Övriga bestämmelser</h2>
+                    <h3>10.1 Hela avtalet</h3>
+                    <p>
+                        Dessa Villkor utgör hela avtalet mellan dig och Nordilingo och ersätter alla tidigare avtal angående Tjänsten.
+                    </p>
+                    
+                    <h3>10.2 Separerbarhet</h3>
+                    <p>
+                        Om någon bestämmelse i dessa Villkor befinns ogiltig eller overkställbar, ska denna bestämmelse begränsas eller elimineras 
+                        till den minsta nödvändiga omfattningen, och de återstående bestämmelserna ska förbli i full kraft och verkan.
+                    </p>
+                    
+                    <h3>10.3 Lag och domstol</h3>
+                    <p>
+                        Dessa Villkor regleras av och tolkas i enlighet med svensk lag. Tvister ska avgöras av svensk domstol med Stockholms tingsrätt som första instans.
+                    </p>
+                    
+                    <h2>11. Kontaktinformation</h2>
+                    <p>
+                        Om du har frågor om dessa Användarvillkor, vänligen kontakta oss på:
+                    </p>
+                    <address class="not-italic mt-2">
+                        Nordilingo AB<br>
+                        Kundservice<br>
+                        Villkorsvägen 15<br>
+                        111 22 Stockholm<br>
+                        Sverige<br>
+                        E-post: <a href="mailto:kontakt@nordilingo.com" class="text-spotify-green hover:underline">kontakt@nordilingo.com</a>
+                    </address>
+                    
+                    <div class="last-updated">
+                        Dessa användarvillkor gäller från och med 15 juni 2023.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-spotify-dark border-t border-spotify">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="flex items-center mb-6">
+                        <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                        <span class="text-white text-2xl font-bold">Nordilingo</span>
+                    </a>
+                    <p class="text-spotify-gray mb-4">
+                        Revolutionerande svenskainlärning genom teknik och pedagogik.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Produkt</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Funktioner</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Priser</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Kurser</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Appar</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Provperiod</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Hjälpcenter</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Kontakta oss</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Vanliga frågor</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Webinarier</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Företag</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Om oss</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Karriär</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Blogg</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Företagslösningar</a></li>
+                        <li><a href="#" class="text-spotify-gray hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-spotify mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-spotify-gray text-sm mb-4 md:mb-0">
+                    &copy; 2023 Nordilingo AB. Alla rättigheter förbehållna.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="integritetspolicy.html" class="text-spotify-gray hover:text-white text-sm">Integritetspolicy</a>
+                    <a href="anvandarvillkor.html" class="text-spotify-gray hover:text-white text-sm">Användarvillkor</a>
+                    <a href="#" class="text-spotify-gray hover:text-white text-sm">Kakor</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Language dropdown toggle
+        const languageDropdowns = document.querySelectorAll('.language-dropdown');
+        
+        languageDropdowns.forEach(dropdown => {
+            const button = dropdown.querySelector('button');
+            const menu = dropdown.querySelector('.language-dropdown-menu');
+            
+            button.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    menu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

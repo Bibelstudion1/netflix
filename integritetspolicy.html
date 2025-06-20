@@ -3,25 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logga in | Nordilingo - Lär dig svenska på ett roligt sätt</title>
-    <meta name="description" content="Logga in på din Nordilingo-konto för att fortsätta din svenska språkresa. Tillgång till alla kurser, lektioner och personliga framsteg.">
-    <meta name="keywords" content="logga in, svenska kurser, språkinlärning, svenska för nybörjare, SFI, svenska online">
+    <title>Integritetspolicy | Nordilingo - Din säkerhet är vår prioritet</title>
+    <meta name="description" content="Läs Nordilingos integritetspolicy och hur vi skyddar dina personuppgifter. Vi är transparenta med vår datainsamling och användning för din trygghet.">
+    <meta name="keywords" content="integritetspolicy, GDPR, dataskydd, personuppgifter, svenska kurser, språkinlärning">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://nordilingo.se/logga-in">
+    <link rel="canonical" href="https://www.nordilingo.com/integritetspolicy">
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Logga in | Nordilingo - Lär dig svenska på ett roligt sätt">
-    <meta property="og:description" content="Logga in på din Nordilingo-konto för att fortsätta din svenska språkresa.">
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:title" content="Integritetspolicy | Nordilingo - Din säkerhet är vår prioritet">
+    <meta property="og:description" content="Läs hur Nordilingo skyddar dina personuppgifter enligt GDPR och svensk lagstiftning.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nordilingo.se/logga-in">
-    <meta property="og:image" content="https://nordilingo.se/images/og-login.jpg">
-    <meta property="og:site_name" content="Nordilingo">
+    <meta property="og:url" content="https://www.nordilingo.com/integritetspolicy">
+    <meta property="og:image" content="https://www.nordilingo.com/image/privacy-og-image.jpg">
     
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Logga in | Nordilingo - Lär dig svenska på ett roligt sätt">
-    <meta name="twitter:description" content="Logga in på din Nordilingo-konto för att fortsätta din svenska språkresa.">
-    <meta name="twitter:image" content="https://nordilingo.se/images/og-login.jpg">
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Integritetspolicy",
+      "description": "Nordilingos policy för hantering av personuppgifter och integritetsskydd.",
+      "url": "https://www.nordilingo.com/integritetspolicy",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Nordilingo AB",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.nordilingo.com/logo.png"
+        }
+      }
+    }
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -72,7 +87,7 @@
         .mobile-menu.open {
             transform: translateX(0);
         }
-        
+
         /* Spotify-like button */
         .spotify-btn {
             background-color: var(--primary);
@@ -83,90 +98,76 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
         }
-        
+
         .spotify-btn:hover {
             transform: scale(1.05);
             background-color: #1ed760;
         }
-        
+
         /* Spotify-like text colors */
         .text-spotify-green {
             color: var(--primary);
         }
-        
+
         .text-spotify-gray {
             color: var(--gray);
         }
-        
+
         .bg-spotify-black {
             background-color: var(--secondary);
         }
-        
+
         .bg-spotify-dark {
             background-color: var(--dark);
         }
-        
+
         .border-spotify {
             border-color: #333;
         }
         
-        /* Login specific styles */
-        .login-container {
-            background: rgba(25, 20, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(29, 185, 84, 0.2);
+        /* Privacy specific styles */
+        .privacy-section {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .input-field {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+        .privacy-header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
         }
         
-        .input-field:focus {
-            border-color: var(--primary);
-            background-color: rgba(255, 255, 255, 0.15);
+        .privacy-content h2 {
+            color: var(--primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
         
-        .social-btn {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+        .privacy-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
         }
         
-        .social-btn:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .privacy-content p, .privacy-content ul {
+            margin-bottom: 1rem;
+            line-height: 1.6;
         }
         
-        .divider {
-            display: flex;
-            align-items: center;
-            text-align: center;
+        .privacy-content ul {
+            padding-left: 1.5rem;
+        }
+        
+        .privacy-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .last-updated {
+            font-style: italic;
             color: var(--gray);
-        }
-        
-        .divider::before, .divider::after {
-            content: "";
-            flex: 1;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .divider::before {
-            margin-right: 1em;
-        }
-        
-        .divider::after {
-            margin-left: 1em;
-        }
-        
-        .remember-me:checked {
-            background-color: var(--primary);
-            border-color: var(--primary);
-        }
-        
-        .remember-me:focus {
-            box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.3);
+            text-align: right;
+            margin-top: 2rem;
         }
     </style>
 </head>
@@ -185,10 +186,10 @@
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <a href="index.html" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Hem</a>
-                            <a href="#" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kurser</a>
+                            <a href="kurser.html" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kurser</a>
                             <a href="Meritvarde.html" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Meritvärde</a>
-                            <a href="#" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Priser</a>
-                            <a href="#" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Recensioner</a>
+                            <a href="#pricing" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Priser</a>
+                            <a href="#testimonials" class="nav-link text-spotify-gray hover:text-white px-3 py-2 rounded-md text-sm font-medium">Recensioner</a>
                         </div>
                     </div>
                 </div>
@@ -217,8 +218,8 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <a href="#" class="ml-4 spotify-btn px-4 py-2 text-sm">
+                       </div>
+                        <a href="logga-in.html" class="ml-4 spotify-btn px-4 py-2 text-sm">
                             Logga in
                         </a>
                     </div>
@@ -246,13 +247,13 @@
             <div class="px-4 pt-4 pb-6">
                 <div class="flex flex-col space-y-4">
                     <a href="index.html" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Hem</a>
-                    <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Kurser</a>
+                    <a href="#courses" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Kurser</a>
                     <a href="Meritvarde.html" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Meritvärde</a>
-                    <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Priser</a>
-                    <a href="#" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Recensioner</a>
+                    <a href="#pricing" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Priser</a>
+                    <a href="#testimonials" class="text-spotify-gray hover:text-white px-3 py-2 rounded-md text-base font-medium">Recensioner</a>
                 </div>
                 <div class="mt-8">
-                    <a href="logga-in.html" class="w-full spotify-btn px-4 py-2 text-base block text-center">
+                    <a href="logga-in.html" class="block w-full text-center spotify-btn px-4 py-2 text-base">
                         Logga in
                     </a>
                 </div>
@@ -285,140 +286,178 @@
         </div>
     </nav>
 
-    <!-- Breadcrumbs -->
-    <div class="pt-16 pb-4 bg-spotify-black">
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                    <li class="inline-flex items-center">
-                        <a href="#" class="inline-flex items-center text-sm font-medium text-spotify-gray hover:text-white">
-                            <i class="fas fa-home mr-2"></i>
-                            Hem
-                        </a>
-                    </li>
-                    <li aria-current="page">
-                        <div class="flex items-center">
-                            <i class="fas fa-chevron-right text-spotify-gray text-xs mx-2"></i>
-                            <span class="text-sm font-medium text-white">Logga in</span>
-                        </div>
-                    </li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Login Section -->
-    <section class="py-12 md:py-20 bg-spotify-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="hidden lg:block">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                        Återvänd till din <span class="text-spotify-green">svenska språkresa</span>
-                    </h1>
-                    <p class="text-lg text-spotify-gray mb-8">
-                        Logga in för att fortsätta dina lektioner, spåra ditt framsteg och låsa upp alla funktioner i din Nordilingo-upplevelse.
+            <!-- Hero Section -->
+            <section class="hero-gradient rounded-xl p-8 md:p-12 mb-12">
+                <div class="text-center">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Integritetspolicy</h1>
+                    <p class="text-lg text-spotify-gray max-w-3xl mx-auto">
+                        Din integritet är viktig för oss. Läs om hur Nordilingo samlar in, använder och skyddar dina personuppgifter.
                     </p>
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-shrink-0">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria K." class="h-12 w-12 rounded-full">
-                        </div>
-                        <div>
-                            <p class="text-white font-medium">"Nordilingo hjälpte mig att förbättra min svenska på bara några månader!"</p>
-                            <p class="text-spotify-gray text-sm">Maria K., Polen</p>
-                        </div>
-                    </div>
+                </div>
+            </section>
+            
+            <!-- Privacy Content -->
+            <div class="privacy-section bg-spotify-black rounded-xl p-6 md:p-10 shadow-lg">
+                <div class="privacy-header">
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">Nordilingos Integritetspolicy</h2>
+                    <p class="text-spotify-gray">
+                        Senast uppdaterad: 15 juni 2023
+                    </p>
                 </div>
                 
-                <div>
-                    <div class="login-container rounded-xl p-8 shadow-2xl max-w-md mx-auto">
-                        <h2 class="text-2xl font-bold text-white mb-6 text-center">Logga in på Nordilingo</h2>
-                        
-                        <!-- Social Login Buttons -->
-                        <div class="space-y-4 mb-6">
-                            <button class="social-btn w-full py-3 px-4 rounded-full text-white flex items-center justify-center">
-                                <i class="fab fa-google text-red-500 mr-3"></i>
-                                Fortsätt med Google
-                            </button>
-                            <button class="social-btn w-full py-3 px-4 rounded-full text-white flex items-center justify-center">
-                                <i class="fab fa-facebook-f text-blue-500 mr-3"></i>
-                                Fortsätt med Facebook
-                            </button>
-                            <button class="social-btn w-full py-3 px-4 rounded-full text-white flex items-center justify-center">
-                                <i class="fab fa-apple text-gray-200 mr-3"></i>
-                                Fortsätt med Apple
-                            </button>
-                        </div>
-                        
-                        <!-- Divider -->
-                        <div class="divider text-spotify-gray text-sm my-6">eller</div>
-                        
-                        <!-- Email Login Form -->
-                        <form action="#" method="POST" class="space-y-6">
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-white mb-1">E-postadress</label>
-                                <div class="relative">
-                                    <input type="email" id="email" name="email" required 
-                                           class="input-field w-full py-3 px-4 rounded text-white placeholder-spotify-gray focus:outline-none focus:ring-2 focus:ring-spotify-green"
-                                           placeholder="din@epost.se">
-                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                                        <i class="fas fa-envelope text-spotify-gray"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <div class="flex justify-between items-center mb-1">
-                                    <label for="password" class="block text-sm font-medium text-white">Lösenord</label>
-                                    <a href="#" class="text-sm font-medium text-spotify-green hover:underline">Glömt lösenord?</a>
-                                </div>
-                                <div class="relative">
-                                    <input type="password" id="password" name="password" required 
-                                           class="input-field w-full py-3 px-4 rounded text-white placeholder-spotify-gray focus:outline-none focus:ring-2 focus:ring-spotify-green"
-                                           placeholder="Ditt lösenord">
-                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                                        <i class="fas fa-lock text-spotify-gray"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <input id="remember-me" name="remember-me" type="checkbox" 
-                                           class="remember-me h-4 w-4 rounded border-gray-300 text-spotify-green focus:ring-spotify-green">
-                                    <label for="remember-me" class="ml-2 block text-sm text-white">Kom ihåg mig</label>
-                                </div>
-                            </div>
-                            
-                            <button type="submit" class="w-full spotify-btn py-3 px-4 text-lg font-bold">
-                                Logga in
-                            </button>
-                        </form>
-                        
-                        <div class="mt-6 text-center">
-                            <p class="text-spotify-gray text-sm">
-                                Har du inget konto? 
-                                <a href="#" class="text-spotify-green font-medium hover:underline">Registrera dig</a>
-                            </p>
-                        </div>
-                    </div>
+                <div class="privacy-content text-spotify-gray">
+                    <p>
+                        Nordilingo AB ("vi", "oss", "vår") värnar om din integritet och är engagerade i att skydda dina personuppgifter. 
+                        Denna integritetspolicy förklarar hur vi samlar in, använder, delar och skyddar information om dig när du använder 
+                        vår webbplats, mobilapplikationer och relaterade tjänster (tillsammans "Tjänsten").
+                    </p>
                     
-                    <!-- Trust indicators -->
-                    <div class="mt-8 text-center">
-                        <div class="flex justify-center space-x-6 mb-4">
-                            <i class="fas fa-shield-alt text-spotify-green text-xl"></i>
-                            <i class="fas fa-lock text-spotify-green text-xl"></i>
-                            <i class="fas fa-user-secret text-spotify-green text-xl"></i>
-                        </div>
-                        <p class="text-spotify-gray text-xs">
-                            Vi tar din integritet på allvar. Alla dina uppgifter är säkra och krypterade.
-                        </p>
+                    <h2>1. Vilken information samlar vi in?</h2>
+                    
+                    <h3>1.1 Information du ger oss</h3>
+                    <p>
+                        När du skapar ett konto eller använder våra tjänster kan vi samla in följande uppgifter:
+                    </p>
+                    <ul>
+                        <li>Personlig identifieringsinformation (namn, e-postadress, telefonnummer)</li>
+                        <li>Demografisk information (ålder, kön, språkkunskaper)</li>
+                        <li>Betalningsinformation (vid köp av premiumtjänster)</li>
+                        <li>Innehåll du skapar eller laddar upp (texter, inspelningar, frågor)</li>
+                    </ul>
+                    
+                    <h3>1.2 Information vi samlar in automatiskt</h3>
+                    <p>
+                        När du använder våra tjänster kan vi samla in:
+                    </p>
+                    <ul>
+                        <li>Användningsdata (vilka lektioner du genomfört, tidsåtgång, framsteg)</li>
+                        <li>Teknisk information (IP-adress, enhetstyp, webbläsare, operativsystem)</li>
+                        <li>Platsdata (om du aktiverar denna funktion)</li>
+                        <li>Cookies och liknande spårningstekniker</li>
+                    </ul>
+                    
+                    <h2>2. Hur använder vi din information?</h2>
+                    <p>
+                        Vi använder den insamlade informationen för följande ändamål:
+                    </p>
+                    <ul>
+                        <li>Leverera och förbättra våra tjänster</li>
+                        <li>Skapa anpassade inlärningsupplevelser</li>
+                        <li>Kommunikation med dig (kontakt, support, uppdateringar)</li>
+                        <li>För betalningsbehandling och fakturering</li>
+                        <li>För forskning och analys för produktutveckling</li>
+                        <li>För att upprätthålla säkerhet och förebygga bedrägerier</li>
+                        <li>För att uppfylla lagliga skyldigheter</li>
+                    </ul>
+                    
+                    <h2>3. Laglig grund för behandling</h2>
+                    <p>
+                        Vi behandlar dina personuppgifter enligt följande lagliga grunder:
+                    </p>
+                    <ul>
+                        <li><strong>Avtal:</strong> För att uppfylla våra åtaganden enligt användarvillkoren</li>
+                        <li><strong>Berättigat intresse:</strong> För att förbättra våra tjänster och förebygga bedrägerier</li>
+                        <li><strong>Samtycke:</strong> När du uttryckligen gett ditt medgivande</li>
+                        <li><strong>Laglig skyldighet:</strong> När vi är skyldiga att följa tillämpliga lagar</li>
+                    </ul>
+                    
+                    <h2>4. Delning av information</h2>
+                    <p>
+                        Vi delar inte din personliga information med tredje part utöver följande undantag:
+                    </p>
+                    <ul>
+                        <li><strong>Tjänsteleverantörer:</strong> Företag som hjälper oss att driva vår verksamhet (t.ex. betalningsprocessorer, molnlagring) under strikta sekretessavtal</li>
+                        <li><strong>Affärsöverlåtelse:</strong> Vid fusion, förvärv eller försäljning av tillgångar</li>
+                        <li><strong>Lagliga krav:</strong> När vi är skyldiga att lämna ut information enligt lag eller rättslig process</li>
+                        <li><strong>Med ditt samtycke:</strong> För specifika ändamål du godkänt</li>
+                    </ul>
+                    
+                    <h2>5. Internationella överföringar</h2>
+                    <p>
+                        Våra servrar finns inom EU/EES, men vissa av våra tjänsteleverantörer kan vara belägna utanför EU/EES. 
+                        Vid sådana överföringar säkerställer vi att lämpliga skyddsåtgärder vidtas, inklusive EU-kommissionens standardavtalsklausuler.
+                    </p>
+                    
+                    <h2>6. Dataskydd</h2>
+                    <p>
+                        Vi implementerar lämpliga tekniska och organisatoriska säkerhetsåtgärder för att skydda dina personuppgifter mot 
+                        obehörig åtkomst, ändring, avslöjande eller förstörelse. Dessa inkluderar:
+                    </p>
+                    <ul>
+                        <li>Kryptering av data under överföring och i vila</li>
+                        <li>Regelbundna säkerhetsgranskningar</li>
+                        <li>Begränsad åtkomst till personuppgifter</li>
+                        <li>Personalutbildning i dataskydd</li>
+                    </ul>
+                    
+                    <h2>7. Dina rättigheter</h2>
+                    <p>
+                        Enligt GDPR har du följande rättigheter gällande dina personuppgifter:
+                    </p>
+                    <ul>
+                        <li><strong>Rätt till tillgång:</strong> Begära en kopia av dina uppgifter</li>
+                        <li><strong>Rätt till rättelse:</strong> Begära korrigering av felaktiga uppgifter</li>
+                        <li><strong>Rätt till radering:</strong> Begära borttagning av dina uppgifter under vissa förutsättningar</li>
+                        <li><strong>Rätt till begränsning:</strong> Begära begränsning av behandlingen</li>
+                        <li><strong>Rätt till dataportabilitet:</strong> Begära överföring av dina uppgifter till annan leverantör</li>
+                        <li><strong>Rätt till invändning:</strong> Invända mot vissa behandlingar</li>
+                        <li><strong>Rätt att återkalla samtycke:</strong> När behandlingen baseras på samtycke</li>
+                    </ul>
+                    <p>
+                        För att utöva dessa rättigheter, vänligen kontakta oss via e-post på <a href="mailto:integritet@nordilingo.com" class="text-spotify-green hover:underline">integritet@nordilingo.com</a>.
+                    </p>
+                    
+                    <h2>8. Cookies och spårningstekniker</h2>
+                    <p>
+                        Vi använder cookies och liknande tekniker för att:
+                    </p>
+                    <ul>
+                        <li>Förbättra användarupplevelsen</li>
+                        <li>Analysera trafik och användningsmönster</li>
+                        <li>Leverera riktade annonser (med ditt samtycke)</li>
+                    </ul>
+                    <p>
+                        Du kan hantera dina cookie-inställningar i din webbläsare eller via vår cookie-banner.
+                    </p>
+                    
+                    <h2>9. Länkar till tredje part</h2>
+                    <p>
+                        Vår tjänst kan innehålla länkar till andra webbplatser. Vi ansvarar inte för deras integritetspraxis 
+                        och rekommenderar att du läser deras integritetspolicyer.
+                    </p>
+                    
+                    <h2>10. Förändringar av denna policy</h2>
+                    <p>
+                        Vi kan uppdatera denna integritetspolicy då och då. Vi kommer att meddela dig om betydande förändringar 
+                        via e-post eller genom en tydlig notis på vår webbplats. Den uppdaterade versionen blir giltig när den publiceras.
+                    </p>
+                    
+                    <h2>11. Kontakta oss</h2>
+                    <p>
+                        Om du har frågor om denna integritetspolicy eller vår behandling av dina personuppgifter, 
+                        kontakta vår dataskyddsombud på:
+                    </p>
+                    <address class="not-italic mt-2">
+                        Nordilingo AB<br>
+                        Attn: Dataskyddsombud<br>
+                        Integritetsvägen 12<br>
+                        111 22 Stockholm<br>
+                        Sverige<br>
+                        E-post: <a href="mailto:integritet@nordilingo.com" class="text-spotify-green hover:underline">integritet@nordilingo.com</a>
+                    </address>
+                    
+                    <div class="last-updated">
+                        Denna policy gäller från och med 15 juni 2023.
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
+ <!-- Footer -->
     <footer class="bg-spotify-dark border-t border-spotify">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -539,48 +578,26 @@
             });
         });
         
-        // Form validation
-        const loginForm = document.querySelector('form');
-        if (loginForm) {
-            loginForm.addEventListener('submit', (e) => {
-                const email = document.getElementById('email');
-                const password = document.getElementById('password');
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                if (!email.value || !password.value) {
-                    e.preventDefault();
-                    alert('Vänligen fyll i både e-post och lösenord');
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
                 }
             });
-        }
-        
-        // Social login buttons animation
-        const socialButtons = document.querySelectorAll('.social-btn');
-        socialButtons.forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                button.style.transform = 'translateY(-2px)';
-            });
-            button.addEventListener('mouseleave', () => {
-                button.style.transform = '';
-            });
         });
-    </script>
-    
-    <!-- Schema.org markup for Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Logga in | Nordilingo - Lär dig svenska på ett roligt sätt",
-      "description": "Logga in på din Nordilingo-konto för att fortsätta din svenska språkresa. Tillgång till alla kurser, lektioner och personliga framsteg.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Nordilingo",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://nordilingo.se/images/logo.png"
-        }
-      }
-    }
     </script>
 </body>
 </html>

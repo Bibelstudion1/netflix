@@ -111,6 +111,10 @@
             background: linear-gradient(135deg, rgba(29,185,84,0.1) 0%, rgba(18,18,18,1) 100%);
             border-left: 4px solid var(--primary);
         }
+        
+        .language-dropdown:hover .language-dropdown-menu {
+            display: block;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-spotify-dark">
@@ -135,12 +139,36 @@
                         </div>
                     </div>
                 </div>
-                <div class="hidden md:block">
+                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
-                        <a href="logga-in.html" class="ml-4 spotify-btn px-4 py-2 text-sm">
-                            Logga in
-                        </a>
-                    </div>
+                        <div class="language-dropdown relative ml-3">
+                            <button class="flex items-center text-sm rounded-full text-white focus:outline-none">
+                                <span class="sr-only">Språk</span>
+                                <img class="h-8 w-8 rounded-full" src="https://flagcdn.com/w40/se.png" alt="Swedish flag">
+                                <span class="ml-2">Svenska</span>
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div class="language-dropdown-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-spotify-black ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/gb.png" alt="English flag" class="h-4 w-4 mr-2">
+                                        English
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/de.png" alt="German flag" class="h-4 w-4 mr-2">
+                                        Deutsch
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/fr.png" alt="French flag" class="h-4 w-4 mr-2">
+                                        Français
+                                    </a>
+                                </div>
+                            </div>
+                       </div>
+<a href="logga-in.html" class="ml-4 spotify-btn px-4 py-2 text-sm">
+    Logga in
+</a>
+</div>
                 </div>
                 <div class="-mr-2 flex md:hidden">
                     <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-spotify-gray hover:text-white hover:bg-gray-700 focus:outline-none">
@@ -960,7 +988,7 @@
                     &copy; 2023 Nordilingo AB. Alla rättigheter förbehållna.
                 </p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-spotify-gray hover:text-white text-sm">Integritetspolicy</a>
+                    <a href="integritetspolicy.html" class="text-spotify-gray hover:text-white text-sm">Integritetspolicy</a>
                     <a href="#" class="text-spotify-gray hover:text-white text-sm">Användarvillkor</a>
                     <a href="#" class="text-spotify-gray hover:text-white text-sm">Kakor</a>
                 </div>

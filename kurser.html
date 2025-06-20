@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordilingo - Svenska Kurser Online | SFI till Avancerad Nivå</title>
+    <meta name="description" content="Interaktiva svenskakurser för alla nivåer. Lär dig svenska online med våra SFI-kurser, affärssvenska och akademisk svenska. Prova gratis idag!">
+    <meta name="keywords" content="svenska kurser, SFI online, lära sig svenska, svenska som andraspråk, svenskundervisning">
+    <link rel="canonical" href="https://www.nordilingo.se/kurser" />
+    
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Nordilingo - Svenska Kurser Online | SFI till Avancerad Nivå">
+    <meta property="og:description" content="Interaktiva svenskakurser för alla nivåer. Lär dig svenska online med våra SFI-kurser, affärssvenska och akademisk svenska.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.nordilingo.se/kurser">
+    <meta property="og:image" content="https://www.nordilingo.se/image/nordilingo-social-share.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nordilingo - Svenska Kurser Online">
+    <meta name="twitter:description" content="Interaktiva svenskakurser för alla nivåer. SFI, affärssvenska och akademisk svenska.">
+    <meta name="twitter:image" content="https://www.nordilingo.se/image/nordilingo-social-share.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Nordilingo - Svenska Kurser Online",
+      "description": "Interaktiva svenskakurser för alla nivåer från SFI till avancerad nivå",
+      "url": "https://www.nordilingo.se/kurser",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Hem",
+          "item": "https://www.nordilingo.se/"
+        },{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kurser"
+        }]
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1DB954; /* Spotify green */
+            --secondary: #191414; /* Spotify black */
+            --dark: #121212;
+            --light: #FFFFFF;
+            --gray: #b3b3b3;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(25, 20, 20, 0.9), rgba(29, 185, 84, 0.8));
+        }
+        
+        .course-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .language-dropdown:hover .language-dropdown-menu {
+            display: block;
+        }
+        
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .marquee {
+            animation: marquee 20s linear infinite;
+        }
+        
+        .testimonial-card {
+            background: rgba(25, 20, 20, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(29, 185, 84, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+            color: var(--gray);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--light);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Spotify-like button */
+        .spotify-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 500px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .spotify-btn:hover {
+            transform: scale(1.05);
+            background-color: #1ed760;
+        }
+
+        /* Spotify-like card */
+        .spotify-card {
+            background-color: #181818;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .spotify-card:hover {
+            background-color: #282828;
+        }
+
+        /* Spotify-like text colors */
+        .text-spotify-green {
+            color: var(--primary);
+        }
+
+        .text-spotify-gray {
+            color: var(--gray);
+        }
+
+        .bg-spotify-black {
+            background-color: var(--secondary);
+        }
+
+        .bg-spotify-dark {
+            background-color: var(--dark);
+        }
+
+        .border-spotify {
+            border-color: #333;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+        
+        .breadcrumb-separator {
+            margin: 0 0.5rem;
+            color: var(--gray);
+        }
+        
+        /* Course filter */
+        .filter-btn {
+            border: 1px solid var(--gray);
+            color: var(--gray);
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: rgba(29, 185, 84, 0.1);
+        }
+        
+        /* Active nav item */
+        .active-nav-item {
+            background-color: rgba(29, 185, 84, 0.1);
+            color: white;
+            border-left: 3px solid var(--primary);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-spotify-dark">
+    <!-- Navigation -->
+    <nav class="bg-spotify-black bg-opacity-90 fixed w-full z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="flex items-center">
+                            <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                            <span class="text-white text-2xl font-bold">Nordilingo</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Hem</a>
+                            <a href="kurser.html" class="nav-link active px-3 py-2 rounded-md text-sm font-medium">Kurser</a>
+                            <a href="Meritvarde.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Meritvärde</a>
+                            <a href="priser.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Priser</a>
+                            <a href="recensioner.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Recensioner</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <div class="language-dropdown relative ml-3">
+                            <button class="flex items-center text-sm rounded-full text-white focus:outline-none">
+                                <span class="sr-only">Språk</span>
+                                <img class="h-8 w-8 rounded-full" src="https://flagcdn.com/w40/se.png" alt="Swedish flag">
+                                <span class="ml-2">Svenska</span>
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div class="language-dropdown-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-spotify-black ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/gb.png" alt="English flag" class="h-4 w-4 mr-2">
+                                        English
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/de.png" alt="German flag" class="h-4 w-4 mr-2">
+                                        Deutsch
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                        <img src="https://flagcdn.com/w40/fr.png" alt="French flag" class="h-4 w-4 mr-2">
+                                        Français
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="logga-in.html" class="ml-4 spotify-btn px-4 py-2 text-sm">
+                            Logga in
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-spotify-gray hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Öppna huvudmeny</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 bg-spotify-black z-50 overflow-y-auto">
+            <div class="px-4 pt-5 pb-4 flex justify-between items-center border-b border-gray-800">
+                <a href="index.html" class="flex items-center">
+                    <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                    <span class="text-white text-2xl font-bold">Nordilingo</span>
+                </a>
+                <button id="close-mobile-menu" class="text-spotify-gray hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="px-4 pt-4 pb-6">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="nav-link px-3 py-2 rounded-md text-base font-medium">Hem</a>
+                    <a href="kurser.html" class="nav-link active-nav-item px-3 py-2 rounded-md text-base font-medium">Kurser</a>
+                    <a href="Meritvarde.html" class="nav-link px-3 py-2 rounded-md text-base font-medium">Meritvärde</a>
+                    <a href="priser.html" class="nav-link px-3 py-2 rounded-md text-base font-medium">Priser</a>
+                    <a href="recensioner.html" class="nav-link px-3 py-2 rounded-md text-base font-medium">Recensioner</a>
+                </div>
+                <div class="mt-8">
+                    <a href="logga-in.html" class="block w-full text-center spotify-btn px-4 py-2 text-base">
+                        Logga in
+                    </a>
+                </div>
+                <div class="mt-4">
+                    <div class="language-dropdown relative">
+                        <button class="flex items-center text-sm rounded-full text-white focus:outline-none">
+                            <img class="h-8 w-8 rounded-full" src="https://flagcdn.com/w40/se.png" alt="Swedish flag">
+                            <span class="ml-2">Svenska</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="language-dropdown-menu hidden mt-2 w-full rounded-md bg-spotify-black">
+                            <div class="py-1">
+                                <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                    <img src="https://flagcdn.com/w40/gb.png" alt="English flag" class="h-4 w-4 mr-2">
+                                    English
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                    <img src="https://flagcdn.com/w40/de.png" alt="German flag" class="h-4 w-4 mr-2">
+                                    Deutsch
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm text-spotify-gray hover:bg-gray-700 hover:text-white flex items-center">
+                                    <img src="https://flagcdn.com/w40/fr.png" alt="French flag" class="h-4 w-4 mr-2">
+                                    Français
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 breadcrumb pt-20">
+        <div class="flex items-center">
+            <a href="index.html" class="hover:text-spotify-green">Hem</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="text-spotify-green">Kurser</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-12 pb-16 md:pt-16 md:pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                        Våra <span class="text-spotify-green">svenskakurser</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-spotify-gray mb-8">
+                        Upptäck vårt breda utbud av svenskakurser anpassade för alla nivåer och behov. 
+                        Oavsett om du precis börjat eller vill förbättra din professionella svenska, har vi rätt kurs för dig.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="spotify-btn px-6 py-3 text-lg flex items-center justify-center">
+                            <i class="fas fa-play mr-2"></i> Prova gratis
+                        </button>
+                        <button class="bg-white hover:bg-gray-100 text-gray-800 px-6 py-3 rounded-full text-lg font-semibold transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-info-circle mr-2"></i> Läs mer
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative">
+                        <img src="image/svenska-online.jpg"
+                             alt="Person som lär sig svenska online med Nordilingo"
+                             class="rounded-xl shadow-2xl w-full h-auto">
+                        <div class="absolute -bottom-6 -right-6 bg-spotify-black p-4 rounded-xl shadow-lg w-64">
+                            <div class="flex items-center">
+                                <div class="relative w-16 h-16">
+                                    <svg class="w-full h-full" viewBox="0 0 36 36">
+                                        <circle class="text-gray-700" stroke-width="4" stroke="currentColor" fill="none" cx="18" cy="18" r="16"></circle>
+                                        <circle class="progress-ring__circle text-spotify-green" stroke-width="4" stroke-linecap="round" stroke="currentColor" fill="none" cx="18" cy="18" r="16" stroke-dasharray="100" stroke-dashoffset="30"></circle>
+                                    </svg>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">70%</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-white text-sm font-medium">Ditt framsteg</p>
+                                    <p class="text-spotify-gray text-xs">3 av 5 lektioner klara</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Filter -->
+    <section class="py-8 bg-spotify-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium active" data-filter="all">
+                    Alla kurser
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="beginner">
+                    Nybörjare (A1-A2)
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="intermediate">
+                    Mellannivå (B1-B2)
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="advanced">
+                    Avancerad (C1-C2)
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="sfi">
+                    SFI
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="business">
+                    Affärssvenska
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="academic">
+                    Akademisk svenska
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="free">
+                    Gratiskurser
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="py-16 bg-spotify-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Våra populära svenskakurser</h2>
+                <p class="text-lg text-spotify-gray">
+                    Utforska våra mest efterfrågade kurser för att lära dig svenska som andraspråk
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- SFI Course -->
+                <div class="course-card spotify-card rounded-xl overflow-hidden shadow-lg transition duration-300" data-level="beginner" data-category="sfi free">
+                    <div class="relative">
+                        <img src="image/SFI-Grundläggande.jpg"
+                             alt="SFI Grundläggande kurs - Lär dig svenska för nybörjare"
+                             class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-spotify-green text-white text-xs font-bold px-2 py-1 rounded">
+                            Nyhet
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white">SFI Grundläggande</h3>
+                            <div class="flex items-center text-spotify-green">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-white">4.8</span>
+                            </div>
+                        </div>
+                        <p class="text-spotify-gray text-sm mb-4">
+                            Lär dig grunderna i svenska för vardagliga situationer. Perfekt för nybörjare som vill lära sig grundläggande svenska.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-user-graduate text-spotify-green mr-2"></i>
+                                <span class="text-spotify-gray text-sm">12,500+ elever</span>
+                            </div>
+                            <span class="text-spotify-green text-sm font-medium">Gratis</span>
+                        </div>
+                        <button class="mt-4 w-full spotify-btn py-2">
+                            Börja lära dig
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Business Swedish -->
+                <div class="course-card spotify-card rounded-xl overflow-hidden shadow-lg transition duration-300" data-level="intermediate advanced" data-category="business">
+                    <div class="relative">
+                        <img src="image/Affärssvenska.jpg"
+                             alt="Affärssvenska kurs - Förbättra din professionella svenska"
+                             class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-white text-spotify-black text-xs font-bold px-2 py-1 rounded">
+                            Populär
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white">Affärssvenska</h3>
+                            <div class="flex items-center text-spotify-green">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-white">4.9</span>
+                            </div>
+                        </div>
+                        <p class="text-spotify-gray text-sm mb-4">
+                            Förbättra din professionella svenska för arbetslivet, affärsmöten och korrespondens. B2-nivå rekommenderas.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-user-graduate text-spotify-green mr-2"></i>
+                                <span class="text-spotify-gray text-sm">8,200+ elever</span>
+                            </div>
+                            <span class="text-white text-sm font-medium">299 kr/mån</span>
+                        </div>
+                        <button class="mt-4 w-full spotify-btn py-2">
+                            Börja lära dig
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Swedish for University -->
+                <div class="course-card spotify-card rounded-xl overflow-hidden shadow-lg transition duration-300" data-level="advanced" data-category="academic">
+                    <div class="relative">
+                        <img src="image/Svenska-för-universitet.jpg"
+                             alt="Svenska för universitet - Förbered dig för akademiska studier"
+                             class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">
+                            Rekommenderas
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white">Svenska för universitet</h3>
+                            <div class="flex items-center text-spotify-green">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-white">4.7</span>
+                            </div>
+                        </div>
+                        <p class="text-spotify-gray text-sm mb-4">
+                            Förbered dig för akademiska studier på svenska. Inkluderar akademiskt skrivande, föreläsningsförståelse och mer.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-user-graduate text-spotify-green mr-2"></i>
+                                <span class="text-spotify-gray text-sm">5,600+ elever</span>
+                            </div>
+                            <span class="text-white text-sm font-medium">249 kr/mån</span>
+                        </div>
+                        <button class="mt-4 w-full spotify-btn py-2">
+                            Börja lära dig
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="border-2 border-spotify-green text-spotify-green hover:bg-spotify-green hover:text-white px-6 py-3 rounded-full text-lg font-semibold transition duration-300">
+                    Visa alla kurser (24+)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Levels Section -->
+    <section class="py-16 bg-spotify-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Hitta rätt kursnivå för dig</h2>
+                <p class="text-lg text-spotify-gray max-w-3xl mx-auto">
+                    Våra kurser följer Europarådets gemensamma europeiska referensram för språk (CEFR)
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Beginner Level -->
+                <div class="spotify-card rounded-xl p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 bg-spotify-green rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">A1-A2</div>
+                        <h3 class="text-xl font-bold text-white">Nybörjare</h3>
+                    </div>
+                    <p class="text-spotify-gray mb-6">
+                        För dig som precis börjat lära dig svenska. Du lär dig grundläggande fraser och enkla samtal.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Grundläggande ordförråd</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Enkla vardagssamtal</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Basgrammatik</span>
+                        </li>
+                    </ul>
+                    <a href="#beginner-courses" class="text-spotify-green font-medium hover:underline">Visa nybörjarkurser →</a>
+                </div>
+                
+                <!-- Intermediate Level -->
+                <div class="spotify-card rounded-xl p-8 border-2 border-spotify-green transform scale-105 z-10 relative">
+                    <div class="absolute top-0 right-0 bg-spotify-green text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                        Mest populär
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 bg-spotify-green rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">B1-B2</div>
+                        <h3 class="text-xl font-bold text-white">Mellannivå</h3>
+                    </div>
+                    <p class="text-spotify-gray mb-6">
+                        För dig som kan en del svenska men vill bli mer självsäker i olika situationer.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Utökat ordförråd</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Mer komplexa samtal</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Avancerad grammatik</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Skriftliga färdigheter</span>
+                        </li>
+                    </ul>
+                    <a href="#intermediate-courses" class="text-spotify-green font-medium hover:underline">Visa mellannivåkurser →</a>
+                </div>
+                
+                <!-- Advanced Level -->
+                <div class="spotify-card rounded-xl p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="w-14 h-14 bg-spotify-green rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">C1-C2</div>
+                        <h3 class="text-xl font-bold text-white">Avancerad</h3>
+                    </div>
+                    <p class="text-spotify-gray mb-6">
+                        För dig som vill nå flytande svenska för arbete, studier eller personlig utveckling.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Specialiserat ordförråd</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Flytande konversation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Avancerat skrivande</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-spotify-green mt-1 mr-2"></i>
+                            <span class="text-spotify-gray">Nuanser och idiom</span>
+                        </li>
+                    </ul>
+                    <a href="#advanced-courses" class="text-spotify-green font-medium hover:underline">Visa avancerade kurser →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Categories Section -->
+    <section class="py-16 bg-spotify-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Kurser för specifika behov</h2>
+                <p class="text-lg text-spotify-gray max-w-3xl mx-auto">
+                    Specialdesignade kurser för olika syften och situationer
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- SFI -->
+                <div class="spotify-card rounded-xl p-6 hover:border-spotify-green border border-transparent transition duration-300">
+                    <div class="w-12 h-12 bg-spotify-green rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-home text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">SFI-kurser</h3>
+                    <p class="text-spotify-gray text-sm">
+                        Svenska för invandrare (SFI) för olika studievägar. Officiellt godkända kurser.
+                    </p>
+                    <a href="sfi-kurser.html" class="inline-block mt-4 text-spotify-green text-sm font-medium hover:underline">
+                        Utforska SFI →
+                    </a>
+                </div>
+                
+                <!-- Academic Swedish -->
+                <div class="spotify-card rounded-xl p-6 hover:border-spotify-green border border-transparent transition duration-300">
+                    <div class="w-12 h-12 bg-spotify-green rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Akademisk svenska</h3>
+                    <p class="text-spotify-gray text-sm">
+                        Förbered dig för universitetsstudier på svenska. Inkluderar TISUS-förberedelse.
+                    </p>
+                    <a href="akademisk-svenska.html" class="inline-block mt-4 text-spotify-green text-sm font-medium hover:underline">
+                        Utforska kurser →
+                    </a>
+                </div>
+                
+                <!-- Business Swedish -->
+                <div class="spotify-card rounded-xl p-6 hover:border-spotify-green border border-transparent transition duration-300">
+                    <div class="w-12 h-12 bg-spotify-green rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-briefcase text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Affärssvenska</h3>
+                    <p class="text-spotify-gray text-sm">
+                        Professionell svenska för arbetslivet. Möten, presentationer, korrespondens och mer.
+                    </p>
+                    <a href="affarssvenska.html" class="inline-block mt-4 text-spotify-green text-sm font-medium hover:underline">
+                        Utforska kurser →
+                    </a>
+                </div>
+                
+                <!-- Swedish for Families -->
+                <div class="spotify-card rounded-xl p-6 hover:border-spotify-green border border-transparent transition duration-300">
+                    <div class="w-12 h-12 bg-spotify-green rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Svenska för familjer</h3>
+                    <p class="text-spotify-gray text-sm">
+                        Gemensam inlärning för hela familjen. Anpassat för både vuxna och barn.
+                    </p>
+                    <a href="familjekurser.html" class="inline-block mt-4 text-spotify-green text-sm font-medium hover:underline">
+                        Utforska kurser →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-spotify-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Så fungerar våra svenskakurser</h2>
+                <p class="text-lg text-spotify-gray max-w-3xl mx-auto">
+                    En unik kombination av teknik och pedagogik för effektiv språkinlärning
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="spotify-card rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-spotify-green rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">1</div>
+                        <h3 class="text-xl font-bold text-white">Testa din nivå</h3>
+                    </div>
+                    <p class="text-spotify-gray mb-6">
+                        Vårt intelligenta placeringstest analyserar dina svenskakunskaper och rekommenderar rätt kursnivå och inriktning.
+                    </p>
+                    <img src="image/placement-test.jpg" alt="Språktest för att bedöma din svenskanivå" class="rounded-lg w-full">
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="spotify-card rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-spotify-green rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">2</div>
+                        <h3 class="text-xl font-bold text-white">Personlig inlärningsväg</h3>
+                    </div>
+                    <p class="text-spotify-gray mb-6">
+                        Vår AI skapar en anpassad inlärningsväg baserad på dina mål, intressen och lärstil för optimala resultat.
+                    </p>
+                    <img src="image/personalized-learning.jpg" alt="Personlig inlärningsväg för svenskastudier" class="rounded-lg w-full">
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="spotify-card rounded-xl p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-spotify-green rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">3</div>
+                        <h3 class="text-xl font-bold text-white">Interaktiv träning</h3>
+                    </div>
+                    <p class="text-spotify-gray mb-6">
+                        Öva med interaktiva lektioner, verkliga samtal och vår avancerade taligenkänning som ger omedelbar feedback på ditt uttal.
+                    </p>
+                    <img src="image/interactive-learning.jpg" alt="Interaktiv träning för svenska som andraspråk" class="rounded-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-spotify-black to-spotify-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Redo att börja lära dig svenska?</h2>
+            <p class="text-xl text-gray-100 mb-8 max-w-3xl mx-auto">
+                Prova Nordilingo gratis i 7 dagar. Inga krav, ingen bindningstid - bara effektiv språkinlärning.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="spotify-btn px-8 py-4 text-lg">
+                    Börja din gratisperiod
+                </button>
+                <button class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-spotify-black px-8 py-4 rounded-full text-lg font-bold transition duration-300">
+                    Kontakta oss
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-spotify-dark border-t border-spotify">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <a href="index.html" class="flex items-center mb-6">
+                        <i class="fas fa-language text-3xl text-spotify-green mr-2"></i>
+                        <span class="text-white text-2xl font-bold">Nordilingo</span>
+                    </a>
+                    <p class="text-spotify-gray mb-4">
+                        Revolutionerande svenskainlärning genom teknik och pedagogik.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-spotify-gray hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Kurser</h3>
+                    <ul class="space-y-2">
+                        <li><a href="sfi-kurser.html" class="text-spotify-gray hover:text-white">SFI-kurser</a></li>
+                        <li><a href="nyborjarkurser.html" class="text-spotify-gray hover:text-white">Nybörjarkurser</a></li>
+                        <li><a href="affarssvenska.html" class="text-spotify-gray hover:text-white">Affärssvenska</a></li>
+                        <li><a href="akademisk-svenska.html" class="text-spotify-gray hover:text-white">Akademisk svenska</a></li>
+                        <li><a href="gratiskurser.html" class="text-spotify-gray hover:text-white">Gratiskurser</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="hjalpcenter.html" class="text-spotify-gray hover:text-white">Hjälpcenter</a></li>
+                        <li><a href="kontakt.html" class="text-spotify-gray hover:text-white">Kontakta oss</a></li>
+                        <li><a href="vanliga-fragor.html" class="text-spotify-gray hover:text-white">Vanliga frågor</a></li>
+                        <li><a href="webinarier.html" class="text-spotify-gray hover:text-white">Webinarier</a></li>
+                        <li><a href="status.html" class="text-spotify-gray hover:text-white">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Företag</h3>
+                    <ul class="space-y-2">
+                        <li><a href="om-oss.html" class="text-spotify-gray hover:text-white">Om oss</a></li>
+                        <li><a href="karriar.html" class="text-spotify-gray hover:text-white">Karriär</a></li>
+                        <li><a href="blogg.html" class="text-spotify-gray hover:text-white">Blogg</a></li>
+                        <li><a href="foretagslosningar.html" class="text-spotify-gray hover:text-white">Företagslösningar</a></li>
+                        <li><a href="press.html" class="text-spotify-gray hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-spotify mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-spotify-gray text-sm mb-4 md:mb-0">
+                    &copy; 2023 Nordilingo AB. Alla rättigheter förbehållna.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="integritetspolicy.html" class="text-spotify-gray hover:text-white text-sm">Integritetspolicy</a>
+                    <a href="anvandarvillkor.html" class="text-spotify-gray hover:text-white text-sm">Användarvillkor</a>
+                    <a href="cookies.html" class="text-spotify-gray hover:text-white text-sm">Kakor</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Language dropdown toggle
+        const languageDropdowns = document.querySelectorAll('.language-dropdown');
+        
+        languageDropdowns.forEach(dropdown => {
+            const button = dropdown.querySelector('button');
+            const menu = dropdown.querySelector('.language-dropdown-menu');
+            
+            button.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    menu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Course filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const courseCards = document.querySelectorAll('.course-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.dataset.filter;
+                
+                if (filterValue === 'all') {
+                    courseCards.forEach(card => card.style.display = 'block');
+                } else {
+                    courseCards.forEach(card => {
+                        const cardCategories = card.dataset.category;
+                        const cardLevel = card.dataset.level;
+                        
+                        if (cardCategories.includes(filterValue) || cardLevel.includes(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
